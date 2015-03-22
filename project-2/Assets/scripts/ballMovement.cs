@@ -6,11 +6,12 @@ public class ballMovement : MonoBehaviour {
 	Rigidbody rigidbody;
 	float xInput;
 	float zInput;
-	public Transform camera;
+	private Transform mainCamera;
 
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
+		mainCamera = Camera.main.transform;
 	}
 	
 	// Update is called once per frame
@@ -21,8 +22,8 @@ public class ballMovement : MonoBehaviour {
 		Vector3 inputDir = new Vector3 (xInput, 0, zInput);
 
 		// Get direction the camera is faceing, transforming it to global vectors
-		Vector3 forwardDirection = camera.transform.TransformDirection (Vector3.forward);
-		Vector3 righDirection = camera.transform.TransformDirection (Vector3.right);
+		Vector3 forwardDirection = mainCamera.transform.TransformDirection (Vector3.forward);
+		Vector3 righDirection = mainCamera.transform.TransformDirection (Vector3.right);
 
 		// Set the direction to move base on the direction the camera is faceing and the user input
 		Vector3 moveDirection = (righDirection * inputDir.x) + (forwardDirection * inputDir.z);
