@@ -10,7 +10,7 @@ public class cameraScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		offset = new Vector3 (player.position.x, player.position.y + 8.0f, player.position.z + 8.0f);
+		offset = new Vector3 (player.position.x, player.position.y + distanceFromPlayer, player.position.z - distanceFromPlayer);
 	}
 	
 	// Update is called once per frame
