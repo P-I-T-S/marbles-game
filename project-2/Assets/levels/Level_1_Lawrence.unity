@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 822686333}
   distanceFromPlayer: 3
+  turnSpeed: 4
 --- !u!4 &822686333
 Transform:
   m_PrefabParentObject: {fileID: 474052, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
