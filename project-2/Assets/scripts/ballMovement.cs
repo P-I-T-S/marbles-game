@@ -6,21 +6,32 @@ public class ballMovement : MonoBehaviour {
 	Rigidbody rigidbody;
 	float xInput;
 	float zInput;
+	public Transform camera;
+
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//G et the user input
 		xInput = Input.GetAxis ("Horizontal");
 		zInput = Input.GetAxis ("Vertical");
-		Vector3 moveDir = new Vector3 (xInput, 0, zInput);
-		
-		//transform.Translate (moveDir * speed * Time.deltaTime);
+		Vector3 inputDir = new Vector3 (xInput, 0, zInput);
 
-		rigidbody.AddForce (moveDir * speed);
+		// Get direction the camera is faceing, transforming it to global vectors
+		Vector3 forwardDirection = camera.transform.TransformDirection (Vector3.forward);
+		Vector3 righDirection = camera.transform.TransformDirection (Vector3.right);
 
+		// Set the direction to move base on the direction the camera is faceing and the user input
+		Vector3 moveDirection = (righDirection * inputDir.x) + (forwardDirection * inputDir.z);
+		// Remove the vertical component
+		moveDirection.y = 0;
+		//Normonlize the vector so all magnitudes are the same
+		moveDirection.Normalize ();
+
+		// Move the ball, multiplying by the speed value
+		rigidbody.AddForce (moveDirection * speed);
 	}
 }
