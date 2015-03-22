@@ -15,16 +15,11 @@ public class cameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 moveToPosition = Vector3.zero;
-
-//		moveToPosition.z = player.position.z - distanceFromPlayer;
-//		moveToPosition.x = player.position.x;
-//		moveToPosition.y = player.position.y + distanceFromPlayer;
-//
-//		transform.position = moveToPosition;
 
 
 	}
+
+	// Late update is so that the camera can be moved after the player has moved
 	void LateUpdate()
 	{
 		offset = Quaternion.AngleAxis (Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offset;
