@@ -226,11 +226,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710759374}
   m_LocalRotation: {x: .331285954, y: 0, z: 0, w: .94353044}
-  m_LocalPosition: {x: 0, y: 2.51999998, z: -3.03999996}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 2.15999985, z: -1.51999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 822686333}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &822686329
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +243,7 @@ GameObject:
   - 135: {fileID: 822686331}
   - 23: {fileID: 822686330}
   - 54: {fileID: 822686334}
+  - 114: {fileID: 822686335}
   m_Layer: 0
   m_Name: marble
   m_TagString: Untagged
@@ -302,10 +303,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .899999976, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
-  m_Children:
-  - {fileID: 710759379}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!54 &822686334
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -321,6 +321,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &822686335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822686329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70c2517dfd3fad4ba4ffda77be482fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &1694948342
 GameObject:
   m_ObjectHideFlags: 0
