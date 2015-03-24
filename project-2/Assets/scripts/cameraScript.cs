@@ -3,20 +3,23 @@ using System.Collections;
 
 public class cameraScript : MonoBehaviour {
 
-	public Transform player;
+	Transform player;
 	public float distanceFromPlayer;
 	public float turnSpeed = 4f;
 	private Vector3 offset;
 
 	// Use this for initialization
 	void Start () {
-		offset = new Vector3 (player.position.x, player.position.y + distanceFromPlayer, player.position.z - distanceFromPlayer);
+		player = GameObject.FindGameObjectWithTag ("Player").transform;
+
+		offset = new Vector3 (player.transform.position.x, player.transform.position.y + distanceFromPlayer, player.transform.position.z - distanceFromPlayer);
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-
+		Debug.Log (player == null);
 	}
 
 	// Late update is so that the camera can be moved after the player has moved
