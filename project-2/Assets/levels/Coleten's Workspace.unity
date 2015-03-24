@@ -232,6 +232,7 @@ GameObject:
   - 92: {fileID: 1471644984}
   - 124: {fileID: 1471644983}
   - 81: {fileID: 1471644982}
+  - 114: {fileID: 1471644987}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -304,6 +305,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1471644987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471644981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7593bcfb04a6a14c91be4d834548377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1868771898}
+  distanceFromPlayer: 1
+  turnSpeed: 4
 --- !u!1 &1868771892
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,8 +330,9 @@ GameObject:
   - 33: {fileID: 1868771897}
   - 135: {fileID: 1868771896}
   - 23: {fileID: 1868771895}
-  - 54: {fileID: 1868771894}
   - 114: {fileID: 1868771893}
+  - 54: {fileID: 1868771894}
+  - 114: {fileID: 1868771899}
   m_Layer: 0
   m_Name: marble
   m_TagString: Untagged
@@ -335,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70c2517dfd3fad4ba4ffda77be482fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!54 &1868771894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -406,3 +422,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1868771899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868771892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677e359dce5f16545890bc4fa34a66e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 250
