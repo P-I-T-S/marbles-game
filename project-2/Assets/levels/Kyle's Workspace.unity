@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  camera: {fileID: 159136161}
 --- !u!54 &2021272967
 Rigidbody:
   m_ObjectHideFlags: 0
