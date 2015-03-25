@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ballMovement : MonoBehaviour {
 	public float speed = 5f;
+	public float jumpForce = 250f;
 	Rigidbody rigidbody;
 	float xInput;
 	float zInput;
@@ -34,5 +35,11 @@ public class ballMovement : MonoBehaviour {
 
 		// Move the ball, multiplying by the speed value
 		rigidbody.AddForce (moveDirection * speed);
+
+		//causes the ball to jump into the air if space bar is pressed
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			Vector3 jump = new Vector3(0, jumpForce, 0);
+			rigidbody.AddForce(jump);
+		}
 	}
 }
