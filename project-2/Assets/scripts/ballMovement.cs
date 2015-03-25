@@ -13,6 +13,7 @@ public class ballMovement : MonoBehaviour {
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
 		mainCamera = Camera.main.transform;
+		rigidbody.maxAngularVelocity = 10;
 	}
 	
 	// Update is called once per frame
