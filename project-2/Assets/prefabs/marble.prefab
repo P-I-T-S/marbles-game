@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 462416}
   - 65: {fileID: 6550230}
+  - 114: {fileID: 11465314}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -119,6 +120,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11465314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e499c457b549db47bc89309e09101dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 250
 --- !u!114 &11477136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
-  jumpForce: 250
 --- !u!135 &13518750
 SphereCollider:
   m_ObjectHideFlags: 1
