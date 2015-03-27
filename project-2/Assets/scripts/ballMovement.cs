@@ -11,6 +11,7 @@ public class ballMovement : MonoBehaviour {
 	public float jumpForce = 250f;
 	BoxCollider collider;
 
+
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();

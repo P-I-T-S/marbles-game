@@ -14,12 +14,6 @@ public class cameraScript : MonoBehaviour {
 
 		offset = new Vector3 (player.transform.position.x, player.transform.position.y + distanceFromPlayer, player.transform.position.z - distanceFromPlayer);
 
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		Debug.Log (player == null);
 	}
 
 	// Late update is so that the camera can be moved after the player has moved
