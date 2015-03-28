@@ -26,7 +26,7 @@ public class ballMovement : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		//G et the user input
+		// Get the user input
 		xInput = Input.GetAxis ("Horizontal");
 		zInput = Input.GetAxis ("Vertical");
 		Vector3 inputDir = new Vector3 (xInput, 0, zInput);
@@ -39,18 +39,32 @@ public class ballMovement : MonoBehaviour {
 		Vector3 moveDirection = (righDirection * inputDir.x) + (forwardDirection * inputDir.z);
 		// Remove the vertical component
 		moveDirection.y = 0;
-		//Normonlize the vector so all magnitudes are the same
+		// Normonlize the vector so all magnitudes are the same
 		moveDirection.Normalize ();
 
 		// Move the ball, multiplying by the speed value
 		rigidbody.AddForce (moveDirection * speed);
 
-		//causes the ball to jump into the air if space bar is pressed (only if ball is grounded)
+		// Causes the ball to jump into the air if space bar is pressed (only if ball is grounded)
 		if (IsGrounded ()) {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				Vector3 jump = new Vector3 (0, jumpForce, 0);
 				GetComponentInParent<Rigidbody> ().AddForce (jump);
 			}
 		}
+
+        if(transform.position.y < -20)
+        {
+            // If the player falls off, reload the level
+            Application.LoadLevel(Application.loadedLevelName);
+        }
 	}
+
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.tag == "Finish")
+        {
+            // Level complete!
+        }
+    }
 }

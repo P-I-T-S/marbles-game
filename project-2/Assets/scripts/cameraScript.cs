@@ -4,13 +4,22 @@ using System.Collections;
 public class cameraScript : MonoBehaviour {
 
 	Transform player;
+
+    Transform spawn;
+    public GameObject marble;
+
 	public float distanceFromPlayer;
 	public float turnSpeed = 4f;
 	private Vector3 offset;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
+        spawn = GameObject.FindGameObjectWithTag("Respawn").transform;
+        Instantiate(marble, spawn.position, Quaternion.identity);
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        
 
 		offset = new Vector3 (player.transform.position.x, player.transform.position.y + distanceFromPlayer, player.transform.position.z - distanceFromPlayer);
 
