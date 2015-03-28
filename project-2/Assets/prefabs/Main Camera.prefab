@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7593bcfb04a6a14c91be4d834548377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marble: {fileID: 179572, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
   distanceFromPlayer: 3
   turnSpeed: 4
 --- !u!124 &12483306

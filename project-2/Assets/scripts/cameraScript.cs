@@ -15,14 +15,13 @@ public class cameraScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spawn = GameObject.FindGameObjectWithTag("Respawn").transform;
-        Instantiate(marble, spawn.position, Quaternion.identity);
+        Instantiate(marble, spawn.position, spawn.rotation);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         
 
-		offset = new Vector3 (player.transform.position.x, player.transform.position.y + distanceFromPlayer, 
-            player.transform.position.z - distanceFromPlayer);
+		offset = new Vector3 (0, distanceFromPlayer,  - distanceFromPlayer);
 
 	}
 
