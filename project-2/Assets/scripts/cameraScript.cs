@@ -21,7 +21,8 @@ public class cameraScript : MonoBehaviour {
 
         
 
-		offset = new Vector3 (player.transform.position.x, player.transform.position.y + distanceFromPlayer, player.transform.position.z - distanceFromPlayer);
+		offset = new Vector3 (player.transform.position.x, player.transform.position.y + distanceFromPlayer, 
+            player.transform.position.z - distanceFromPlayer);
 
 	}
 
@@ -31,5 +32,9 @@ public class cameraScript : MonoBehaviour {
 		offset = Quaternion.AngleAxis (Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offset;
 		transform.position = player.position + offset;
 		transform.LookAt(player.position);
+
+        offset = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * turnSpeed, -Vector3.right) * offset;
+        transform.position = player.position + offset;
+        transform.LookAt(player.position);
 	}
 }
