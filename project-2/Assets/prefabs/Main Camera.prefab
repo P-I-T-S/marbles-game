@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7593bcfb04a6a14c91be4d834548377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   distanceFromPlayer: 3
   turnSpeed: 4
 --- !u!124 &12483306

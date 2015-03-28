@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
-  jumpForce: 250
+  jumpForce: 300
 --- !u!135 &13518750
 SphereCollider:
   m_ObjectHideFlags: 1
