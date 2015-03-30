@@ -23,7 +23,7 @@ public class ballMovement : MonoBehaviour {
 	}
 	bool IsGrounded() 
 	{
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.01f);
 	}
 	// Update is called once per frame
 	void Update () {
