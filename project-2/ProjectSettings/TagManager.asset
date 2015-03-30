@@ -6,6 +6,8 @@ TagManager:
   tags:
   - player
   - Ground
+  - Game Manager
+  - Start
   layers:
   - Default
   - TransparentFX
