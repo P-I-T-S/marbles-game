@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour {
         string Time = string.Format("{0:0}:{1:00}:{2:000}", minutes, seconds, milliseconds);
         GUI.skin.label.fontSize = 50;
         GUI.color = Color.black;
-        GUI.Label(new Rect(475, 0, 250, 250), Time);
+        GUI.Label(new Rect(450, 0, 250, 250), Time);
     }
 	
 	// Update is called once per frame
