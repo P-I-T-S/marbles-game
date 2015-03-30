@@ -7,6 +7,7 @@ public class ballMovement : MonoBehaviour {
 	float xInput;
 	float zInput;
 	private Transform mainCamera;
+    private bool buttonDown;
 	float distToGround;
 	public float jumpForce = 250f;
 	BoxCollider collider;
@@ -26,24 +27,32 @@ public class ballMovement : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		// Get the user input
-		xInput = Input.GetAxis ("Horizontal");
-		zInput = Input.GetAxis ("Vertical");
-		Vector3 inputDir = new Vector3 (xInput, 0, zInput);
 
-		// Get direction the camera is faceing, transforming it to global vectors
-		Vector3 forwardDirection = mainCamera.transform.TransformDirection (Vector3.forward);
-		Vector3 righDirection = mainCamera.transform.TransformDirection (Vector3.right);
+        buttonDown = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||
+            Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
 
-		// Set the direction to move base on the direction the camera is faceing and the user input
-		Vector3 moveDirection = (righDirection * inputDir.x) + (forwardDirection * inputDir.z);
-		// Remove the vertical component
-		moveDirection.y = 0;
-		// Normonlize the vector so all magnitudes are the same
-		moveDirection.Normalize ();
+        if (buttonDown)
+        {
+            // Get the user input
+		    xInput = Input.GetAxis ("Horizontal");
+		    zInput = Input.GetAxis ("Vertical");
+		    Vector3 inputDir = new Vector3 (xInput, 0, zInput);
 
-		// Move the ball, multiplying by the speed value
-		rigidbody.AddForce (moveDirection * speed);
+		    // Get direction the camera is faceing, transforming it to global vectors
+		    Vector3 forwardDirection = mainCamera.transform.TransformDirection (Vector3.forward);
+		    Vector3 righDirection = mainCamera.transform.TransformDirection (Vector3.right);
+
+		    // Set the direction to move base on the direction the camera is faceing and the user input
+		    Vector3 moveDirection = (righDirection * inputDir.x) + (forwardDirection * inputDir.z);
+		    // Remove the vertical component
+		    moveDirection.y = 0;
+		    // Normonlize the vector so all magnitudes are the same
+		    moveDirection.Normalize ();
+
+		    // Move the ball, multiplying by the speed value
+		    rigidbody.AddForce (moveDirection * speed);
+        }
+		
 
 		// Causes the ball to jump into the air if space bar is pressed (only if ball is grounded)
 		if (IsGrounded ()) {
