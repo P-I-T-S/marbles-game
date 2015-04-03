@@ -9,7 +9,7 @@ public class ballMovement : MonoBehaviour {
 	private Transform mainCamera;
     private bool buttonDown;
 	float distToGround;
-	public static float jumpForce = 250f;
+	public float jumpForce = 250f;
 	BoxCollider collider;
 
 

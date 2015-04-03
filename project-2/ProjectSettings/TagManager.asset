@@ -8,11 +8,7 @@ TagManager:
   - Ground
   - Game Manager
   - Start
-<<<<<<< HEAD
-  - Spring
-=======
   - Gem
->>>>>>> origin/master
   layers:
   - Default
   - TransparentFX
