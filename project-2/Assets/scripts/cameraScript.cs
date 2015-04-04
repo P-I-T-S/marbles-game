@@ -28,6 +28,8 @@ public class cameraScript : MonoBehaviour {
 	// Late update is so that the camera can be moved after the player has moved
 	void LateUpdate()
 	{
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
 		offset = Quaternion.AngleAxis (Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offset;
 		transform.position = player.position + offset;
 		transform.LookAt(player.position);
