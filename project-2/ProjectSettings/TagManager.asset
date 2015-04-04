@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spring
+  - Game Manager
+  - Start
+  - Gem
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - UI Background
   - 
   - 
   - 

@@ -18,6 +18,12 @@ public class collisions : MonoBehaviour {
             col.gameObject.SetActive(false);
             Invoke("Display", 20);
         }
+        else if(col.gameObject.tag == "Gem")
+        {
+            GameObject.Destroy(col.gameObject);
+            Debug.Log("Gem collected!");
+            // Need to update GUI to show gem has been collected
+        }
     }
     void Update()
     {

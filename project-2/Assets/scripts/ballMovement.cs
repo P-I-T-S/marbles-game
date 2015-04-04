@@ -73,7 +73,17 @@ public class ballMovement : MonoBehaviour {
     {
         if(col.tag == "Finish")
         {
-            // Level complete!
+            // Check if all gems are collected
+            if(GameObject.FindGameObjectsWithTag("Gem").Length == 0)
+            {
+                // Found all gems
+                Debug.Log("Level complete!");
+            }
+            else
+            {
+                Debug.Log("Not all gems have been collected!");
+            }
+
         }
     }
 }
