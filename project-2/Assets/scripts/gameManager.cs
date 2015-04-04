@@ -15,18 +15,13 @@ public class gameManager : MonoBehaviour {
         GameObject gameManager = GameObject.FindGameObjectWithTag("Game Manager");
         DontDestroyOnLoad(gameManager);
 
-        if(PlayerPrefs.GetString(registeredLevelNames[0]) == "")
-        {
-            Debug.Log("err");
-        }
-
         // Load the highscores
         foreach(string levelName in registeredLevelNames)
         {
             // If this is the first time the game has been played, load filler data
             if (PlayerPrefs.GetString(levelName) == "")
             {
-                PlayerPrefs.SetString(levelName, "Lawrence:0.0 Lawrence:0.0 Lawrence:0.0 Lawrence:0.0 Lawrence:0.0");
+                PlayerPrefs.SetString(levelName, "Lawrence:0.0 Lawrence:0.0 Lawrence:0.0");
                 PlayerPrefs.Save();
             }
             else
@@ -39,13 +34,13 @@ public class gameManager : MonoBehaviour {
 
     private Player[] parsePlayerData(string data)
     {
-        // There are always 5 highscores per level
-        Player [] players = new Player [5];
+        // There are always 3 highscores per level
+        Player [] players = new Player [3];
         // Split the string into players
         string[] playersString = data.Split(' ');
         
         // Test if the string array is the right length
-        if(playersString.Length == 5)
+        if(playersString.Length == 3)
         {
             int count = 0;
             // Create players for each player in string
