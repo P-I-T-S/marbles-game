@@ -3,8 +3,8 @@ using System.Collections;
 
 public class collisions : MonoBehaviour {
     GameObject superJump;
-    float superJumpForce;
-    int numSuperJump;
+    float superJumpForce = 800f;
+    bool canSuperJump;
     void Start()
     {
         superJump = GameObject.FindGameObjectWithTag("Spring");
@@ -14,19 +14,21 @@ public class collisions : MonoBehaviour {
     {
         if (col.gameObject.tag == "Spring")
         {
-            superJumpForce = 800f;
-            numSuperJump = 1;
-            if (numSuperJump == 1)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    Vector3 jump = new Vector3(0, superJumpForce, 0);
-                    GetComponent<Rigidbody>().AddForce(jump);
-                    numSuperJump = 0;
-                }
-            }
+            canSuperJump = true;
             col.gameObject.SetActive(false);
-            Invoke("Display", 5);
+            Invoke("Display", 20);
+        }
+    }
+    void Update()
+    {
+        if (canSuperJump)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Vector3 jump = new Vector3(0, superJumpForce, 0);
+                GetComponent<Rigidbody>().AddForce(jump);
+                canSuperJump = false;
+            }
         }
     }
 
