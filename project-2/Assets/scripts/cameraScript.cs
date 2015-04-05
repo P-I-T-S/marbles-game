@@ -11,6 +11,7 @@ public class cameraScript : MonoBehaviour {
 	public float distanceFromPlayer;
 	public float turnSpeed = 4f;
 	private Vector3 offset;
+    float rotationY = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -35,8 +36,12 @@ public class cameraScript : MonoBehaviour {
 		transform.position = player.position + offset;
 		transform.LookAt(player.position);
 
-        offset = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * turnSpeed, -Vector3.right) * offset;
-        transform.position = player.position + offset;
-        transform.LookAt(player.position);
+        //offset = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * turnSpeed, -Vector3.right) * offset;
+        //transform.position = player.position + offset;
+        //transform.LookAt(player.position);
+
+        rotationY += Input.GetAxis("Mouse Y") * turnSpeed;
+        rotationY = Mathf.Clamp(rotationY, -45f, 45f);
+        transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 	}
 }
