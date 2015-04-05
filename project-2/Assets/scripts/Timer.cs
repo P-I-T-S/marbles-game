@@ -23,4 +23,9 @@ public class Timer : MonoBehaviour {
 	void Update () {
         timer += Time.deltaTime;
 	}
+
+    public void reset()
+    {
+        timer = 0.0f;
+    }
 }

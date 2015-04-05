@@ -10,6 +10,8 @@ TagManager:
   - Gem
   - GUI
   - gemsCollectedGuiText
+  - levelCompleteCanvas
+  - Timer
   layers:
   - Default
   - TransparentFX

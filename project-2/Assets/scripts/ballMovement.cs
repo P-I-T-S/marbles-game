@@ -11,6 +11,7 @@ public class ballMovement : MonoBehaviour {
 	float distToGround;
 	public static float jumpForce = 250f;
 	BoxCollider collider;
+    public Canvas levelCompleteCanvas;
 
 
 	// Use this for initialization
@@ -20,6 +21,8 @@ public class ballMovement : MonoBehaviour {
 		rigidbody.maxAngularVelocity = 15;
 		collider = GetComponentInChildren<BoxCollider> ();
 		distToGround = collider.bounds.extents.z;
+        levelCompleteCanvas = GameObject.FindGameObjectWithTag("levelCompleteCanvas").GetComponent<Canvas>();
+        levelCompleteCanvas.enabled = false;
 	}
 	bool IsGrounded() 
 	{
@@ -78,6 +81,7 @@ public class ballMovement : MonoBehaviour {
             {
                 // Found all gems
                 Debug.Log("Level complete!");
+                LevelCompletion();
             }
             else
             {
@@ -86,4 +90,11 @@ public class ballMovement : MonoBehaviour {
 
         }
     }
+
+    void LevelCompletion()
+    {
+        Time.timeScale = 0;
+        levelCompleteCanvas.enabled = true;
+    }
+
 }

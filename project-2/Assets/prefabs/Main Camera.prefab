@@ -13,6 +13,7 @@ GameObject:
   - 124: {fileID: 12483306}
   - 81: {fileID: 8135052}
   - 114: {fileID: 11400164}
+  - 114: {fileID: 11469592}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -92,6 +93,18 @@ MonoBehaviour:
   marble: {fileID: 179572, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
   distanceFromPlayer: 3
   turnSpeed: 4
+--- !u!114 &11469592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a92e1ed85c11ff4b803080d76a6f469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
 --- !u!124 &12483306
 Behaviour:
   m_ObjectHideFlags: 1
