@@ -72,7 +72,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: 9b38c2bdc55c3564598a2ab4eac441f6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: f2d3b89835075034c94bf00043b8faac, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
