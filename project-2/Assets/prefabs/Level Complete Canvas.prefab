@@ -259,8 +259,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: MainMenu
+      - m_Target: {fileID: 11469592, guid: 30672fccfa874994692616da563467aa, type: 2}
+        m_MethodName: loadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

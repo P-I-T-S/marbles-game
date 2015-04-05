@@ -12,6 +12,7 @@ TagManager:
   - gemsCollectedGuiText
   - levelCompleteCanvas
   - Timer
+  - pauseCanvas
   layers:
   - Default
   - TransparentFX

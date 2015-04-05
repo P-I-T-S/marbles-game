@@ -7,6 +7,7 @@ public class PauseController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        pauseMenu = GameObject.FindGameObjectWithTag("pauseCanvas").GetComponent<Canvas>();
         isPaused = false;
         pauseMenu.enabled = isPaused;
 	}
