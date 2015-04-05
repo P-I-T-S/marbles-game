@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class gameManager : MonoBehaviour {
 
     // The names of the levels to load from the saved highscore data
-    string[] registeredLevelNames = { "Level_1", "Level_2" };
+    public string[] registeredLevelNames = { "Level_1", "Level_2" };
     // A dictionary with the level name as the key and the list of players as the values
-    Dictionary<string, Player[]> highscores = new Dictionary<string, Player[]>();
+    public Dictionary<string, Player[]> highscores = new Dictionary<string, Player[]>();
 
     void Awake()
     {
