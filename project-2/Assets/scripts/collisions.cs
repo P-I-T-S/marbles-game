@@ -38,15 +38,15 @@ public class collisions : MonoBehaviour {
         else if(col.gameObject.tag == "Gem")
         {
             GameObject.Destroy(col.gameObject);
-            Debug.Log("Gem collected!");
-            numberOfGemsCollected++;
         }
     }
+
 
     // Update GUI elements
     void OnGUI()
     {
         // Update number of gems collected
+        UpdateNumberOfGemsCollected();
         gemsCollectedText.text = numberOfGemsCollected.ToString() + "/" + totalNumberOfGems.ToString();
     }
 
@@ -66,5 +66,10 @@ public class collisions : MonoBehaviour {
     void Display()
     {
         superJump.SetActive(true);
+    }
+
+    void UpdateNumberOfGemsCollected()
+    {
+        this.numberOfGemsCollected = this.totalNumberOfGems - GameObject.FindGameObjectsWithTag("Gem").Length;
     }
 }
