@@ -21,7 +21,8 @@ public class cameraScript : MonoBehaviour {
 
         
 
-		offset = new Vector3 (0, distanceFromPlayer,  - distanceFromPlayer);
+		offset = spawn.right * -1 * distanceFromPlayer;
+        offset = new Vector3(offset.x, distanceFromPlayer /2, offset.z);
 
 	}
 
