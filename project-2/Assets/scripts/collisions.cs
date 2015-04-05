@@ -10,6 +10,7 @@ public class collisions : MonoBehaviour {
 	bool canSuperSpeed;
 	bool hitSuperJump;
 	bool hitSuperSpeed;
+	Transform maincamera;
     Text gemsCollectedText;
     int numberOfGemsCollected;
     int totalNumberOfGems;
@@ -19,6 +20,7 @@ public class collisions : MonoBehaviour {
     {
         superJump = GameObject.FindGameObjectWithTag("Spring");
 		superSpeed = GameObject.FindGameObjectWithTag ("SuperSpeed");
+		maincamera = Camera.main.transform;
         GameObject gemsCollectedUI = GameObject.FindGameObjectWithTag("gemsCollectedGuiText");
         gemsCollectedText = gemsCollectedUI.GetComponent<Text>();
         numberOfGemsCollected = 0;
@@ -46,7 +48,7 @@ public class collisions : MonoBehaviour {
 			canSuperSpeed = true;
 			col.gameObject.SetActive(false);
 			hitSuperSpeed = true;
-			Invoke("Display", 20);
+			Invoke("Display", 10);
 		}
 
         // Gem pickup
@@ -80,8 +82,12 @@ public class collisions : MonoBehaviour {
 		//super speed
 		if (canSuperSpeed) {
 			if(Input.GetKeyDown(KeyCode.Mouse0)){
-				Vector3 speed = new Vector3(0, 0, superSpeedForce);
-				GetComponent<Rigidbody>().AddForce(speed);
+				float zInput = Input.GetAxis ("Vertical");
+				Vector3 inputDir = new Vector3 (0, 0, zInput);
+				Vector3 forwardDirection = maincamera.transform.TransformDirection (Vector3.forward);
+				forwardDirection.y = 0;
+				Rigidbody ballRigidBody = GetComponent<Rigidbody>();
+				ballRigidBody.AddForce (forwardDirection * superSpeedForce);
 				canSuperSpeed = false;
 			}
 		}
@@ -93,7 +99,7 @@ public class collisions : MonoBehaviour {
 			superJump.SetActive (true);
 			hitSuperJump = false;
 		}
-		if (hitSuperJump) {
+		if (hitSuperSpeed) {
 			superSpeed.SetActive (true);
 			hitSuperSpeed = false;
 		}
