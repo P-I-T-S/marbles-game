@@ -13,6 +13,7 @@ TagManager:
   - levelCompleteCanvas
   - Timer
   - pauseCanvas
+  - SuperSpeed
   layers:
   - Default
   - TransparentFX
