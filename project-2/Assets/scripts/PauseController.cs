@@ -24,6 +24,7 @@ public class PauseController : MonoBehaviour {
 
     public void RestartLevel()
     {
+        Debug.Log("restarting level");
         Time.timeScale = 1;
         isPaused = false;
         Application.LoadLevel(Application.loadedLevelName);
