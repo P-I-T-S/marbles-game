@@ -3,8 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 public class collisions : MonoBehaviour {
     GameObject superJump;
+	GameObject superSpeed;
     float superJumpForce = 800f;
+	float superSpeedForce = 2000f;
     bool canSuperJump;
+	bool canSuperSpeed;
+	bool hitSuperJump;
+	bool hitSuperSpeed;
     Text gemsCollectedText;
     int numberOfGemsCollected;
     int totalNumberOfGems;
@@ -13,6 +18,7 @@ public class collisions : MonoBehaviour {
     void Awake()
     {
         superJump = GameObject.FindGameObjectWithTag("Spring");
+		superSpeed = GameObject.FindGameObjectWithTag ("SuperSpeed");
         GameObject gemsCollectedUI = GameObject.FindGameObjectWithTag("gemsCollectedGuiText");
         gemsCollectedText = gemsCollectedUI.GetComponent<Text>();
         numberOfGemsCollected = 0;
@@ -32,8 +38,17 @@ public class collisions : MonoBehaviour {
         {
             canSuperJump = true;
             col.gameObject.SetActive(false);
+			hitSuperJump = true;
             Invoke("Display", 20);
         }
+		//Super Speed
+		if (col.gameObject.tag == "SuperSpeed") {
+			canSuperSpeed = true;
+			col.gameObject.SetActive(false);
+			hitSuperSpeed = true;
+			Invoke("Display", 20);
+		}
+
         // Gem pickup
         else if(col.gameObject.tag == "Gem")
         {
@@ -52,6 +67,7 @@ public class collisions : MonoBehaviour {
 
     void Update()
     {
+		//super jump
         if (canSuperJump)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -61,11 +77,27 @@ public class collisions : MonoBehaviour {
                 canSuperJump = false;
             }
         }
+		//super speed
+		if (canSuperSpeed) {
+			if(Input.GetKeyDown(KeyCode.Mouse0)){
+				Vector3 speed = new Vector3(0, 0, superSpeedForce);
+				GetComponent<Rigidbody>().AddForce(speed);
+				canSuperSpeed = false;
+			}
+		}
     }
 
     void Display()
     {
-        superJump.SetActive(true);
+		if (hitSuperJump) {
+			superJump.SetActive (true);
+			hitSuperJump = false;
+		}
+		if (hitSuperJump) {
+			superSpeed.SetActive (true);
+			hitSuperSpeed = false;
+		}
+
     }
 
     void UpdateNumberOfGemsCollected()
