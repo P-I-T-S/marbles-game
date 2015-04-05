@@ -38,6 +38,12 @@ public class gameManager : MonoBehaviour {
         Player [] players = new Player [3];
         // Split the string into players
         string[] playersString = data.Split(' ');
+        string test = "";
+        foreach (string player in playersString)
+        {
+            test += player + " ";
+        }
+        Debug.Log(playersString.Length + " ");
         
         // Test if the string array is the right length
         if(playersString.Length == 3)
