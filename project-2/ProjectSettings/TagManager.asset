@@ -8,6 +8,8 @@ TagManager:
   - Game Manager
   - Start
   - Gem
+  - GUI
+  - gemsCollectedGuiText
   layers:
   - Default
   - TransparentFX
