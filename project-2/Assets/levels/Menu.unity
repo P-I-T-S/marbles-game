@@ -966,7 +966,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11461024, guid: 2a1664fe9bb79df4fbcf37dcc270a2a3, type: 2}
       propertyPath: levelName
-      value: Level_1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11461024, guid: 2a1664fe9bb79df4fbcf37dcc270a2a3, type: 2}
       propertyPath: levelLoader
