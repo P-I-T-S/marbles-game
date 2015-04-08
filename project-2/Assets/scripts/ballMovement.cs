@@ -20,13 +20,13 @@ public class ballMovement : MonoBehaviour {
 		mainCamera = Camera.main.transform;
 		rigidbody.maxAngularVelocity = 15;
 		collider = GetComponentInChildren<BoxCollider> ();
-		distToGround = collider.bounds.extents.z;
+		distToGround = collider.bounds.extents.y;
         levelCompleteCanvas = GameObject.FindGameObjectWithTag("levelCompleteCanvas").GetComponent<Canvas>();
         levelCompleteCanvas.enabled = false;
 	}
 	bool IsGrounded() 
 	{
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.01f);
+		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
 	}
 	// Update is called once per frame
 	void Update () {
