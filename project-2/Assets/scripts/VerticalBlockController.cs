@@ -78,7 +78,7 @@ public class VerticalBlockController : MonoBehaviour {
         
     }
 
-    public void ToggleUnlock()
+    public void ToggleLocked()
     {
         isLocked = !isLocked;
     }

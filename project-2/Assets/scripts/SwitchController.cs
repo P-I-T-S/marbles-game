@@ -26,6 +26,7 @@ public class SwitchController : MonoBehaviour {
         if (inTrigger && Input.GetKeyDown(KeyCode.E)) //Allows player to toggle switch on and off
         {
             Debug.Log("Pressed Key");
+            toggleObject.SendMessage("ToggleLocked");
             lockUnlock();
         }
 

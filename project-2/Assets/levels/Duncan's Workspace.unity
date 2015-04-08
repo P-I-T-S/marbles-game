@@ -311,7 +311,7 @@ MonoBehaviour:
   axis: y
   direction: -1
   rotationsPerSecond: .100000001
-  locked: 0
+  locked: 1
 --- !u!1001 &100736994
 Prefab:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class RotatingBlock : MonoBehaviour {
         }
     }
 
-    void ToggleLocked()
+    public void ToggleLocked()
     {
         locked = !locked;
     }
