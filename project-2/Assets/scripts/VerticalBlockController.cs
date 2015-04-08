@@ -74,6 +74,10 @@ public class VerticalBlockController : MonoBehaviour {
 
                 direction *= -1;
             }
+            if (other.tag == "LockedBlock")
+            {
+                isLocked = true;
+            }
         }
         
     }

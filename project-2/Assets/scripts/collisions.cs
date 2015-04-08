@@ -39,17 +39,26 @@ public class collisions : MonoBehaviour {
         if (col.gameObject.tag == "Spring")
         {
             canSuperJump = true;
+            canSuperSpeed = false;
             col.gameObject.SetActive(false);
 			hitSuperJump = true;
             Invoke("Display", 20);
         }
 		//Super Speed
-		if (col.gameObject.tag == "SuperSpeed") {
+		else if (col.gameObject.tag == "SuperSpeed") {
 			canSuperSpeed = true;
+            canSuperJump = false;
 			col.gameObject.SetActive(false);
 			hitSuperSpeed = true;
 			Invoke("Display", 10);
 		}
+
+        //Turning off powerups when level finished
+        else if (col.gameObject.tag == "Finish")
+        {
+            canSuperJump = false;
+            canSuperSpeed = false;
+        }
 
         // Gem pickup
         else if(col.gameObject.tag == "Gem")
@@ -69,6 +78,7 @@ public class collisions : MonoBehaviour {
 
     void Update()
     {
+
 		//super jump
         if (canSuperJump)
         {
