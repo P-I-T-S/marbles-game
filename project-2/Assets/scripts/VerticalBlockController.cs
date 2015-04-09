@@ -78,8 +78,28 @@ public class VerticalBlockController : MonoBehaviour {
             {
                 isLocked = true;
             }
-        }
-        
+        }        
+    }
+    
+    void OnCollisionStay(Collision other)
+    {
+    	if (other.collider.tag == "Player" && !isLocked && !waiting)
+    	{
+    		Vector3 playerPos = other.gameObject.transform.position;
+    		switch (axis)
+    		{
+    			case "x":
+					playerPos.x += direction * MAX_MOVEMENT * speed * Time.deltaTime;
+					break;
+				case "y":
+					playerPos.y += direction * MAX_MOVEMENT * speed * Time.deltaTime;
+					break;
+				case "z":
+					playerPos.z += direction * MAX_MOVEMENT * speed * Time.deltaTime;
+					break;
+    		}
+    		other.gameObject.transform.position = playerPos;
+    	}
     }
 
     public void ToggleLocked()
