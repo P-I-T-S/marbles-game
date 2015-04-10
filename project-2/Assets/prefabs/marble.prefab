@@ -72,7 +72,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c1a0484e99c07434582d235ac421d057, type: 2}
+  - {fileID: 2100000, guid: d050a8a1ef8626a4bacf19d4d23e9077, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70c2517dfd3fad4ba4ffda77be482fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
+  speed: 25
   levelCompleteCanvas: {fileID: 22344754, guid: a13f34e9dbb62de41bb3daaf3dbdefe8,
     type: 2}
 --- !u!135 &13518750
@@ -151,7 +151,7 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179572}
-  m_Material: {fileID: 13400000, guid: 6501bb2c5298ae249ad9a5abcd39c8af, type: 2}
+  m_Material: {fileID: 13400000, guid: c0609227597b45c4686c041dbeb136ce, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
