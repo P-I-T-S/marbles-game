@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ballMovement : MonoBehaviour {
-	public float speed = 5f;
+	public float speed = 10f;
 	Rigidbody rigidbody;
 	float xInput;
 	float zInput;
@@ -18,7 +18,7 @@ public class ballMovement : MonoBehaviour {
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
 		mainCamera = Camera.main.transform;
-		rigidbody.maxAngularVelocity = 15;
+		rigidbody.maxAngularVelocity = 45;
 		collider = GetComponentInChildren<BoxCollider> ();
 		distToGround = collider.bounds.extents.y;
         levelCompleteCanvas = GameObject.FindGameObjectWithTag("levelCompleteCanvas").GetComponent<Canvas>();
