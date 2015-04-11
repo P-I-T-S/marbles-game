@@ -5,11 +5,15 @@ public class collisions : MonoBehaviour {
     GameObject superJump;
 	GameObject superSpeed;
     float superJumpForce = 800f;
-	float superSpeedForce = 2000f;
+	float superSpeedForce = 5000f;
+	SphereCollider sphereCollider;
     bool canSuperJump;
 	bool canSuperSpeed;
 	bool hitSuperJump;
 	bool hitSuperSpeed;
+	bool frictionChanged; 
+	float startTime;
+	float time;
 	Transform maincamera;
     Text gemsCollectedText;
     int numberOfGemsCollected;
@@ -18,6 +22,7 @@ public class collisions : MonoBehaviour {
     // Initialization
     void Awake()
     {
+		sphereCollider = this.gameObject.GetComponent<SphereCollider>();
         superJump = GameObject.FindGameObjectWithTag("Spring");
 		superSpeed = GameObject.FindGameObjectWithTag ("SuperSpeed");
 		maincamera = Camera.main.transform;
@@ -92,6 +97,10 @@ public class collisions : MonoBehaviour {
 		//super speed
 		if (canSuperSpeed) {
 			if(Input.GetKeyDown(KeyCode.Mouse0)){
+				frictionChanged = true;
+				if(frictionChanged){
+					changeFriction();
+				}
 				float zInput = Input.GetAxis ("Vertical");
 				Vector3 inputDir = new Vector3 (0, 0, zInput);
 				Vector3 forwardDirection = maincamera.transform.TransformDirection (Vector3.forward);
@@ -102,7 +111,30 @@ public class collisions : MonoBehaviour {
 			}
 		}
     }
+	//Changing the friction for the superspeed 
+	void changeFriction(){
+		Debug.Log (sphereCollider.material.dynamicFriction);
+		startTime = Time.deltaTime;
+		Debug.Log (startTime);
+		time = Time.deltaTime;
+		Debug.Log (time);
+		sphereCollider.material.staticFriction = 10;
+		sphereCollider.material.dynamicFriction = 10;
+		sphereCollider.material.staticFriction2 = 10;
+		sphereCollider.material.dynamicFriction2 = 10;
+		Debug.Log (sphereCollider.material.dynamicFriction);
+		Debug.Log ("SCREW FRICTION!!!");
+		if (time - startTime >= 2) {
+			Debug.Log (startTime);
+			Debug.Log (time);
+			Debug.Log("FRICTION!!!!");
+			sphereCollider.material.staticFriction = 9999999;
+			sphereCollider.material.dynamicFriction = 1435.87f;
+			frictionChanged = false;
+		}
 
+	}
+	
     void Display()
     {
 		if (hitSuperJump) {
