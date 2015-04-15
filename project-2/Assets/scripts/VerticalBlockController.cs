@@ -6,7 +6,6 @@ using System.Collections;
 **/
 
 public class VerticalBlockController : MonoBehaviour {
-
     public int direction = -1;
 
     public string axis;
