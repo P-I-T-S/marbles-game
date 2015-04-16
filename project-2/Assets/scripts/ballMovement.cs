@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ballMovement : MonoBehaviour {
 	public float speed = 10f;

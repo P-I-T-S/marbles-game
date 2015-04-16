@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 public class collisions : MonoBehaviour {
+    public Text superJumpText;
     GameObject superJump;
 	GameObject superSpeed;
     float superJumpForce = 800f;
@@ -43,6 +44,7 @@ public class collisions : MonoBehaviour {
         // Super Jump pickup
         if (col.gameObject.tag == "Spring")
         {
+            superJumpText.GetComponent<CanvasGroup>().alpha = 1;
             canSuperJump = true;
             canSuperSpeed = false;
             col.gameObject.SetActive(false);
@@ -62,6 +64,7 @@ public class collisions : MonoBehaviour {
         else if (col.gameObject.tag == "Finish")
         {
             canSuperJump = false;
+            superJumpText.GetComponent<CanvasGroup>().alpha = 0;
             canSuperSpeed = false;
         }
 
@@ -92,6 +95,7 @@ public class collisions : MonoBehaviour {
                 Vector3 jump = new Vector3(0, superJumpForce, 0);
                 GetComponent<Rigidbody>().AddForce(jump);
                 canSuperJump = false;
+                superJumpText.GetComponent<CanvasGroup>().alpha = 0;
             }
         }
 		//super speed
