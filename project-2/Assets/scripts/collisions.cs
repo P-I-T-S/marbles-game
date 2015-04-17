@@ -44,12 +44,12 @@ public class collisions : MonoBehaviour {
         // Super Jump pickup
         if (col.gameObject.tag == "Spring")
         {
-            superJumpText.GetComponent<CanvasGroup>().alpha = 1;
+            Show();
             canSuperJump = true;
             canSuperSpeed = false;
             col.gameObject.SetActive(false);
 			hitSuperJump = true;
-            Invoke("Display", 20);
+            Invoke("Display", 10);
         }
 		//Super Speed
 		else if (col.gameObject.tag == "SuperSpeed") {
@@ -63,8 +63,8 @@ public class collisions : MonoBehaviour {
         //Turning off powerups when level finished
         else if (col.gameObject.tag == "Finish")
         {
+            Hide();
             canSuperJump = false;
-            superJumpText.GetComponent<CanvasGroup>().alpha = 0;
             canSuperSpeed = false;
         }
 
@@ -95,7 +95,7 @@ public class collisions : MonoBehaviour {
                 Vector3 jump = new Vector3(0, superJumpForce, 0);
                 GetComponent<Rigidbody>().AddForce(jump);
                 canSuperJump = false;
-                superJumpText.GetComponent<CanvasGroup>().alpha = 0;
+                Hide();
             }
         }
 		//super speed
@@ -150,6 +150,16 @@ public class collisions : MonoBehaviour {
 			hitSuperSpeed = false;
 		}
 
+    }
+
+    void Show()
+    {
+        superJumpText.GetComponent<CanvasGroup>().alpha = 1;
+    }
+
+    void Hide()
+    {
+        superJumpText.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     void UpdateNumberOfGemsCollected()
