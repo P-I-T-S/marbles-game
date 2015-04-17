@@ -12,7 +12,6 @@ public class collisions : MonoBehaviour {
 	bool canSuperSpeed;
 	bool hitSuperJump;
 	bool hitSuperSpeed;
-	bool frictionChanged; 
 	float startTime;
 	float time;
 	Transform maincamera;
@@ -101,10 +100,7 @@ public class collisions : MonoBehaviour {
 		//super speed
 		if (canSuperSpeed) {
 			if(Input.GetKeyDown(KeyCode.Mouse0)){
-				frictionChanged = true;
-				if(frictionChanged){
-					changeFriction();
-				}
+				decreaseFriction();
 				float zInput = Input.GetAxis ("Vertical");
 				Vector3 inputDir = new Vector3 (0, 0, zInput);
 				Vector3 forwardDirection = maincamera.transform.TransformDirection (Vector3.forward);
@@ -116,7 +112,7 @@ public class collisions : MonoBehaviour {
 		}
     }
 	//Changing the friction for the superspeed 
-	void changeFriction(){
+	void decreaseFriction(){
 		Debug.Log (sphereCollider.material.dynamicFriction);
 		startTime = Time.deltaTime;
 		Debug.Log (startTime);
@@ -128,15 +124,12 @@ public class collisions : MonoBehaviour {
 		sphereCollider.material.dynamicFriction2 = 10;
 		Debug.Log (sphereCollider.material.dynamicFriction);
 		Debug.Log ("SCREW FRICTION!!!");
-		if (time - startTime >= 2) {
-			Debug.Log (startTime);
-			Debug.Log (time);
-			Debug.Log("FRICTION!!!!");
+		Invoke ("increaseFriction", 2);
+	}
+	void increaseFriction(){
 			sphereCollider.material.staticFriction = 9999999;
 			sphereCollider.material.dynamicFriction = 1435.87f;
-			frictionChanged = false;
-		}
-
+		Debug.Log("Increase friction");
 	}
 	
     void Display()
