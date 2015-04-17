@@ -17,7 +17,7 @@ public class cameraScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spawn = GameObject.FindGameObjectWithTag("Respawn").transform;
-        Instantiate(marble, spawn.position, spawn.rotation);
+        //Instantiate(marble, spawn.position, spawn.rotation);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -36,13 +36,5 @@ public class cameraScript : MonoBehaviour {
         offset = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offset;
         transform.position = player.position + offset;
         transform.LookAt(player.position);
-
-        //offset = Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * turnSpeed, -Vector3.right) * offset;
-        //transform.position = player.position + offset;
-        //transform.LookAt(player.position);
-
-        //rotationY += Input.GetAxis("Mouse Y") * turnSpeed;
-        //rotationY = Mathf.Clamp(rotationY, -45f, 45f);
-        //transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
 	}
 }
