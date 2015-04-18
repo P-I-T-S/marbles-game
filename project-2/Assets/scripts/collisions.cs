@@ -12,8 +12,6 @@ public class collisions : MonoBehaviour {
 	bool canSuperSpeed;
 	bool hitSuperJump;
 	bool hitSuperSpeed;
-	float startTime;
-	float time;
 	Transform maincamera;
     Text gemsCollectedText;
     int numberOfGemsCollected;
@@ -110,20 +108,12 @@ public class collisions : MonoBehaviour {
 				canSuperSpeed = false;
 			}
 		}
-    }
+    } // End of update method
+
 	//Changing the friction for the superspeed 
 	void decreaseFriction(){
-		Debug.Log (sphereCollider.material.dynamicFriction);
-		startTime = Time.deltaTime;
-		Debug.Log (startTime);
-		time = Time.deltaTime;
-		Debug.Log (time);
 		sphereCollider.material.staticFriction = 10;
 		sphereCollider.material.dynamicFriction = 10;
-		sphereCollider.material.staticFriction2 = 10;
-		sphereCollider.material.dynamicFriction2 = 10;
-		Debug.Log (sphereCollider.material.dynamicFriction);
-		Debug.Log ("SCREW FRICTION!!!");
 		Invoke ("increaseFriction", 2);
 	}
 	void increaseFriction(){
@@ -143,7 +133,8 @@ public class collisions : MonoBehaviour {
 			hitSuperSpeed = false;
 		}
 
-    }
+    } 
+
 
     void Show()
     {
