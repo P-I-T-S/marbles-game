@@ -8,7 +8,7 @@ PhysicMaterial:
   m_Name: FloorFriction
   dynamicFriction: 700
   staticFriction: 700
-  bounciness: 0
+  bounciness: .5
   frictionCombine: 0
   bounceCombine: 3
   frictionDirection2: {x: 1, y: 1, z: 1}
