@@ -5,11 +5,11 @@ PhysicMaterial:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FloorFriction
+  m_Name: noBounce
   dynamicFriction: 700
   staticFriction: 700
-  bounciness: .5
-  frictionCombine: 0
+  bounciness: 0
+  frictionCombine: 3
   bounceCombine: 3
   frictionDirection2: {x: 1, y: 1, z: 1}
   dynamicFriction2: 100
