@@ -66,7 +66,7 @@ public class ballMovement : MonoBehaviour {
 				GetComponentInParent<Rigidbody> ().AddForce (jump);
 			}
 		}
-
+		//Might need to change this to be position.y of both the start and finish platform
         if(transform.position.y < -20)
         {
             // If the player falls off, reload the level
