@@ -344,6 +344,15 @@ Prefab:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13518750, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5548597e30c64c142b39c470c8f78849,
+        type: 2}
+    - target: {fileID: 5448598, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
+      propertyPath: m_Mass
+      value: .300000012
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 21543850, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
