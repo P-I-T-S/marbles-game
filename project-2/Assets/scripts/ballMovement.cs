@@ -10,7 +10,7 @@ public class ballMovement : MonoBehaviour {
 	private Transform mainCamera;
     private bool buttonDown;
 	float distToGround;
-	public static float jumpForce = 250f;
+	public float jumpForce = 250f;
 	BoxCollider collider;
     public Canvas levelCompleteCanvas;
 
@@ -62,8 +62,9 @@ public class ballMovement : MonoBehaviour {
 		// Causes the ball to jump into the air if space bar is pressed (only if ball is grounded)
 		if (IsGrounded ()) {
 			if (Input.GetKeyDown (KeyCode.Space)) {
-				Vector3 jump = new Vector3 (0, jumpForce, 0);
-				GetComponentInParent<Rigidbody> ().AddForce (jump);
+                Vector3 jump = new Vector3(0, jumpForce, 0);
+                GetComponentInParent<Rigidbody>().AddForce(jump);
+               
 			}
 		}
 		//Might need to change this to be position.y of both the start and finish platform
