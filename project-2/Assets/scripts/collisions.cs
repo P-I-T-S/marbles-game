@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 public class collisions : MonoBehaviour {
     public Text superJumpText;
-    GameObject[] superJumps;
-	GameObject[] superSpeeds;
+    GameObject superJump;
+	GameObject superSpeed;
     float superJumpForce = 800f;
 	float superSpeedForce = 5000f;
 	SphereCollider sphereCollider;
@@ -21,8 +21,8 @@ public class collisions : MonoBehaviour {
     void Awake()
     {
 		sphereCollider = this.gameObject.GetComponent<SphereCollider>();
-        superJumps = GameObject.FindGameObjectsWithTag("Spring");
-		superSpeeds = GameObject.FindGameObjectsWithTag ("SuperSpeed");
+        superJump = GameObject.FindGameObjectWithTag("Spring");
+		superSpeed = GameObject.FindGameObjectWithTag ("SuperSpeed");
 		maincamera = Camera.main.transform;
         GameObject gemsCollectedUI = GameObject.FindGameObjectWithTag("gemsCollectedGuiText");
         gemsCollectedText = gemsCollectedUI.GetComponent<Text>();
@@ -112,29 +112,28 @@ public class collisions : MonoBehaviour {
 
 	//Changing the friction for the superspeed 
 	void decreaseFriction(){
+		//turn off sound
+//		GetComponent<AudioSource> ().enabled = false;
+		//decrease friction
 		sphereCollider.material.staticFriction = 10;
 		sphereCollider.material.dynamicFriction = 10;
-		Invoke ("increaseFriction", 2);
+		Invoke ("increaseFriction", 1f);
 	}
 	void increaseFriction(){
-			sphereCollider.material.staticFriction = 9999999;
-			sphereCollider.material.dynamicFriction = 1435.87f;
-		Debug.Log("Increase friction");
+		//turn on audio
+//		GetComponent<AudioSource> ().enabled = true;
+		sphereCollider.material.staticFriction = 9999999;
+		sphereCollider.material.dynamicFriction = 1435.87f;
 	}
 	
     void Display()
     {
 		if (hitSuperJump) {
-            foreach(GameObject superJump in superJumps) {
-                superJump.SetActive(true);
-            }
+			superJump.SetActive (true);
 			hitSuperJump = false;
 		}
 		if (hitSuperSpeed) {
-            foreach (GameObject superSpeed in superSpeeds)
-            {
-                superSpeed.SetActive(true);
-            }
+			superSpeed.SetActive (true);
 			hitSuperSpeed = false;
 		}
 
