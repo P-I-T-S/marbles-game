@@ -25,7 +25,7 @@ public class ballMovement : MonoBehaviour {
         levelCompleteCanvas = GameObject.FindGameObjectWithTag("levelCompleteCanvas").GetComponent<Canvas>();
         levelCompleteCanvas.enabled = false;
 	}
-	bool IsGrounded() 
+	public bool IsGrounded() 
 	{
 		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.2f);
 	}

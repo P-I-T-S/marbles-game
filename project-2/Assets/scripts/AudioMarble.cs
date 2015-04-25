@@ -1,15 +1,56 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
+ * This script is for playing the rolling sound 
+ * when the marble is rolling. It increases in pitch
+ * when the marble is rolling faster.
+ */
 public class AudioMarble : MonoBehaviour {
+	public AudioClip rolling;
+	private bool isPlaying = false;
+	private bool isGrounded = false;
+	float distToGround;
+	BoxCollider collider;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Start(){
+		collider = GetComponentInChildren<BoxCollider> ();
+		distToGround = collider.bounds.extents.y;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-	
+		/*
+		Rigidbody marbleRigidbody = GetComponent<Rigidbody> ();
+		float velocity1 = marbleRigidbody.velocity.magnitude;
+		Invoke ("waitASecond", 1.0f);
+		float velocity2 = GetComponent<Rigidbody> ().velocity.magnitude;
+		Debug.Log("Velocity 1: " + velocity1 + " Velocity 2: " + velocity2);
+		//If velocity is changing
+		if (Mathf.Abs (velocity2 - velocity1) > 0) {
+			GetComponent<AudioSource> ().Play ();
+		}
+		else {
+			GetComponent<AudioSource>().Pause();
+		}
+		*/
+
+		Vector3 marbleVelocity = GetComponent<Rigidbody>().velocity;
+		isGrounded = IsGrounded();
+		Debug.Log ("grounded: " + isGrounded);
+		if (marbleVelocity.magnitude > 0.5f && !isPlaying && isGrounded) {
+			GetComponent<AudioSource> ().Play ();
+			isPlaying = true;
+		}
+		else if(marbleVelocity.magnitude < 0.5f || !isGrounded){
+			GetComponent<AudioSource> ().Pause();
+		}
+		if (!(GetComponent<AudioSource> ().isPlaying)) {
+			isPlaying = false;
+		}
 	}
+
+	public bool IsGrounded() 
+	{
+		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.2f);
+	}
+
 }
