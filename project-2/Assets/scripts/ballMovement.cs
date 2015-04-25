@@ -61,7 +61,17 @@ public class ballMovement : MonoBehaviour {
             else
             {
                 Vector3 inputDir = new Vector3(xInput, 0, zInput);
-                Vector3 moveDirection = (Vector3.forward * inputDir.z) + (Vector3.right * inputDir.x);
+
+                // Get direction the camera is faceing, transforming it to global vectors
+                Vector3 forwardDirection = mainCamera.transform.TransformDirection(Vector3.forward);
+                Vector3 righDirection = mainCamera.transform.TransformDirection(Vector3.right);
+
+                // Set the direction to move base on the direction the camera is faceing and the user input
+                Vector3 moveDirection = (righDirection * inputDir.z) + (forwardDirection * inputDir.x);
+                // Remove the vertical component
+                moveDirection.y = 0;
+                // Normonlize the vector so all magnitudes are the same
+                moveDirection.Normalize();
 
                 rigidbody.AddForce(moveDirection * speed);
             }
