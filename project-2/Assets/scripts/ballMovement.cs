@@ -40,22 +40,31 @@ public class ballMovement : MonoBehaviour {
             // Get the user input
 		    xInput = Input.GetAxis ("Horizontal");
 		    zInput = Input.GetAxis ("Vertical");
-		    Vector3 inputDir = new Vector3 (xInput * -1, 0, zInput);
-
-		    // Get direction the camera is faceing, transforming it to global vectors
-		    Vector3 forwardDirection = mainCamera.transform.TransformDirection (Vector3.forward);
-		    Vector3 righDirection = mainCamera.transform.TransformDirection (Vector3.right);
-
-		    // Set the direction to move base on the direction the camera is faceing and the user input
-		    Vector3 moveDirection = (righDirection * inputDir.z) + (forwardDirection * inputDir.x);
-		    // Remove the vertical component
-		    moveDirection.y = 0;
-		    // Normonlize the vector so all magnitudes are the same
-		    moveDirection.Normalize ();
 
 		    // Move the ball, multiplying by the speed value
-		    //rigidbody.AddForce (moveDirection * speed);
-		    rigidbody.AddTorque(moveDirection * speed);
+            if (IsGrounded())
+            {
+                Vector3 inputDir = new Vector3(xInput * -1, 0, zInput);
+
+                // Get direction the camera is faceing, transforming it to global vectors
+                Vector3 forwardDirection = mainCamera.transform.TransformDirection(Vector3.forward);
+                Vector3 righDirection = mainCamera.transform.TransformDirection(Vector3.right);
+
+                // Set the direction to move base on the direction the camera is faceing and the user input
+                Vector3 moveDirection = (righDirection * inputDir.z) + (forwardDirection * inputDir.x);
+                // Remove the vertical component
+                moveDirection.y = 0;
+                // Normonlize the vector so all magnitudes are the same
+                moveDirection.Normalize();
+                rigidbody.AddTorque(moveDirection * speed);
+            }
+            else
+            {
+                Vector3 inputDir = new Vector3(xInput, 0, zInput);
+                Vector3 moveDirection = (Vector3.forward * inputDir.z) + (Vector3.right * inputDir.x);
+
+                rigidbody.AddForce(moveDirection * speed);
+            }
         }
 		
 
