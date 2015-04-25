@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour {
         int milliseconds = (int)((timer - Mathf.Floor(timer)) * 1000);
 
         string Time = string.Format("{0:0}:{1:00}:{2:000}", minutes, seconds, milliseconds);
-        GUI.Label(new Rect(currentRect.x, 0, 250, 250), Time, style);
+        GUI.Label(new Rect(currentRect.x, 0, 200, 50), Time, style);
     }
 	
 	// Update is called once per frame
