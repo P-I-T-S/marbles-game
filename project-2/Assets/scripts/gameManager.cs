@@ -6,7 +6,7 @@ using System;
 public class gameManager : MonoBehaviour {
 
     // The names of the levels to load from the saved highscore data
-    public string[] registeredLevelNames = {"1"};
+    public string[] registeredLevelNames = {"1", "2", "3", "4", "5"};
     // A dictionary with the level name as the key and the list of players as the values
     public Dictionary<string, Player[]> highscores = new Dictionary<string, Player[]>();
 
@@ -34,9 +34,6 @@ public class gameManager : MonoBehaviour {
                 Debug.Log(highscoreData);
             }
         }
-        Debug.Log(highscores["1"][0]);
-        
-        Debug.Log(addScore(1, "blabbber", 10001.1f));
     }
     /// <summary>
     /// Adds a score to the highscore if it is one of the top three.
@@ -46,7 +43,7 @@ public class gameManager : MonoBehaviour {
     /// <returns>Return the tier you have taken(ex "bronze", "silver")</returns>
     public String addScore(int level, string playerName, float score)
     {
-        if (this.highscores.ContainsKey("1") == false)
+        if (this.highscores.ContainsKey(level.ToString()) == false)
         {
             return "error adding score";
         }
@@ -58,6 +55,7 @@ public class gameManager : MonoBehaviour {
             Player[] temp = new Player[4];
             for(int i = players.Length - 1; i >= 0; i--)
             {
+                Debug.Log("player score: " + players[i].Time);
                 // Check to see if a new tier was achieved
                 if(newScore.CompareTo(players[i]) == -1)
                 {

@@ -22,6 +22,8 @@ TagManager:
   - infoAndTipsCanvas
   - infoAndTipsText
   - gemsCollectedCanvas
+  - levelCompleteTimeText
+  - newBestTime
   layers:
   - Default
   - TransparentFX

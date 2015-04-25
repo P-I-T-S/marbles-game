@@ -29,7 +29,7 @@ public class Player: IComparable{
         if (otherPlayer is Player)
         {
             Player temp = (Player)otherPlayer;
-            if (this.Time > temp.Time) return -1;
+            if (this.Time < temp.Time) return -1;
             if (this.Time == temp.Time) return 0;
             return 1;
         }

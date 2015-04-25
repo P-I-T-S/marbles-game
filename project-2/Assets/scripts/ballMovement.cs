@@ -16,7 +16,8 @@ public class ballMovement : MonoBehaviour {
     Timer timer;
     Canvas gemsCollectedCanvas;
     Canvas infoAndTipsCanvas;
-
+    Text levelCompleteTimeText;
+    gameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +30,8 @@ public class ballMovement : MonoBehaviour {
         levelCompleteCanvas = GameObject.FindGameObjectWithTag("levelCompleteCanvas").GetComponent<Canvas>();
         gemsCollectedCanvas = GameObject.FindGameObjectWithTag(("gemsCollectedCanvas")).GetComponent<Canvas>();
         infoAndTipsCanvas = GameObject.FindGameObjectWithTag("infoAndTipsCanvas").GetComponent<Canvas>();
+        levelCompleteTimeText = GameObject.FindGameObjectWithTag("levelCompleteTimeText").GetComponent<Text>();
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<gameManager>();
         levelCompleteCanvas.enabled = false;
 
 	}
@@ -127,6 +130,21 @@ public class ballMovement : MonoBehaviour {
         timer.enabled = false;
         gemsCollectedCanvas.enabled = false;
         infoAndTipsCanvas.enabled = false;
+        levelCompleteTimeText.text = "Time: " + Timer.ToString();
+
+        string newHighScoreTier = gameManager.addScore(int.Parse(Application.loadedLevelName), "Zoidberg", Timer.time);
+        if (string.IsNullOrEmpty(newHighScoreTier)) {
+        GameObject[] newBestTimeObjects = GameObject.FindGameObjectsWithTag("newBestTime");
+        foreach (GameObject o in newBestTimeObjects)
+        {
+            o.SetActive(false);
+        }
+    }
+    else {
+        levelCompleteTimeText.text += " " + newHighScoreTier;
+}
+        //--------
+
         
     }
 
