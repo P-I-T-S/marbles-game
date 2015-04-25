@@ -33,14 +33,15 @@ public class AudioMarble : MonoBehaviour {
 		}
 		*/
 
-		Vector3 marbleVelocity = GetComponent<Rigidbody>().velocity;
+		float marbleVelocity = GetComponent<Rigidbody>().velocity.magnitude;
+		Debug.Log ("veloc: " + marbleVelocity);
+		GetComponent<AudioSource> ().pitch = (marbleVelocity / 100) * 9.09f;
 		isGrounded = IsGrounded();
-		Debug.Log ("grounded: " + isGrounded);
-		if (marbleVelocity.magnitude > 0.5f && !isPlaying && isGrounded) {
+		if (marbleVelocity > 0.5f && !isPlaying && isGrounded) {
 			GetComponent<AudioSource> ().Play ();
 			isPlaying = true;
 		}
-		else if(marbleVelocity.magnitude < 0.5f || !isGrounded){
+		else if(marbleVelocity < 0.5f || !isGrounded){
 			GetComponent<AudioSource> ().Pause();
 		}
 		if (!(GetComponent<AudioSource> ().isPlaying)) {
