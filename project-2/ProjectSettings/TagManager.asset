@@ -19,6 +19,9 @@ TagManager:
   - LockedBlock
   - superJumpUI
   - Projector
+  - infoAndTipsCanvas
+  - infoAndTipsText
+  - gemsCollectedCanvas
   layers:
   - Default
   - TransparentFX

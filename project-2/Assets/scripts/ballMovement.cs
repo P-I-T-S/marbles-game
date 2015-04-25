@@ -13,17 +13,24 @@ public class ballMovement : MonoBehaviour {
 	public float jumpForce = 250f;
 	BoxCollider collider;
     public Canvas levelCompleteCanvas;
+    Timer timer;
+    Canvas gemsCollectedCanvas;
+    Canvas infoAndTipsCanvas;
 
 
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody> ();
+        timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
 		mainCamera = Camera.main.transform;
 		rigidbody.maxAngularVelocity = 45;
 		collider = GetComponentInChildren<BoxCollider> ();
 		distToGround = collider.bounds.extents.y;
         levelCompleteCanvas = GameObject.FindGameObjectWithTag("levelCompleteCanvas").GetComponent<Canvas>();
+        gemsCollectedCanvas = GameObject.FindGameObjectWithTag(("gemsCollectedCanvas")).GetComponent<Canvas>();
+        infoAndTipsCanvas = GameObject.FindGameObjectWithTag("infoAndTipsCanvas").GetComponent<Canvas>();
         levelCompleteCanvas.enabled = false;
+
 	}
 	public bool IsGrounded() 
 	{
@@ -102,7 +109,6 @@ public class ballMovement : MonoBehaviour {
             if(GameObject.FindGameObjectsWithTag("Gem").Length == 0)
             {
                 // Found all gems
-                Debug.Log("Level complete!");
                 LevelCompletion();
             }
             else
@@ -117,6 +123,10 @@ public class ballMovement : MonoBehaviour {
     {
         Time.timeScale = 0;
         levelCompleteCanvas.enabled = true;
+        timer.enabled = false;
+        gemsCollectedCanvas.enabled = false;
+        infoAndTipsCanvas.enabled = false;
+        
     }
 
 }
