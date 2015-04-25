@@ -24,6 +24,7 @@ public class underwatercameraeffect : MonoBehaviour
 
         //Set the background color
         GetComponent<Camera>().backgroundColor = new Color(0, 0.4f, 0.7f, 1);
+        GameObject.FindGameObjectWithTag("Projector").GetComponent<Projector>().enabled = false;
     }
 
     void Update()
@@ -34,6 +35,7 @@ public class underwatercameraeffect : MonoBehaviour
             RenderSettings.fogColor = new Color(0, 0.4f, 0.7f, 0.6f);
             RenderSettings.fogDensity = 0.04f;
             RenderSettings.skybox = noSkybox;
+            GameObject.FindGameObjectWithTag("Projector").GetComponent<Projector>().enabled = true;
         }
         else
         {
@@ -41,6 +43,7 @@ public class underwatercameraeffect : MonoBehaviour
             RenderSettings.fogColor = defaultFogColor;
             RenderSettings.fogDensity = defaultFogDensity;
             RenderSettings.skybox = defaultSkybox;
+            GameObject.FindGameObjectWithTag("Projector").GetComponent<Projector>().enabled = false;
         }
     }
 }

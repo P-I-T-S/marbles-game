@@ -18,6 +18,7 @@ TagManager:
   - MovingBlock
   - LockedBlock
   - superJumpUI
+  - Projector
   layers:
   - Default
   - TransparentFX
