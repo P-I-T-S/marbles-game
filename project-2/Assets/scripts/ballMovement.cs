@@ -122,6 +122,7 @@ public class ballMovement : MonoBehaviour {
     void LevelCompletion()
     {
         Time.timeScale = 0;
+		GetComponent<AudioSource> ().enabled = false;
         levelCompleteCanvas.enabled = true;
         timer.enabled = false;
         gemsCollectedCanvas.enabled = false;
