@@ -70,7 +70,7 @@ public class ballMovement : MonoBehaviour {
             }
             else
             {
-                Vector3 inputDir = new Vector3(xInput, 0, zInput);
+                Vector3 inputDir = new Vector3(zInput, 0, xInput);
 
                 // Get direction the camera is faceing, transforming it to global vectors
                 Vector3 forwardDirection = mainCamera.transform.TransformDirection(Vector3.forward);
@@ -83,7 +83,7 @@ public class ballMovement : MonoBehaviour {
                 // Normonlize the vector so all magnitudes are the same
                 moveDirection.Normalize();
 
-                rigidbody.AddForce(moveDirection * speed);
+                rigidbody.AddForce(moveDirection * speed / 4);
             }
         }
 		

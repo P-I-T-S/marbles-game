@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: f736dff1672fbe64fa1f05a7a7724be7
+timeCreated: 1430025256
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: BezierCurve
+    100002: //RootNode
+    100004: NurbsPath
+    100006: NurbsPath_MeshPart0
+    100008: NurbsPath_MeshPart1
+    100010: NurbsPath_MeshPart10
+    100012: NurbsPath_MeshPart11
+    100014: NurbsPath_MeshPart12
+    100016: NurbsPath_MeshPart13
+    100018: NurbsPath_MeshPart2
+    100020: NurbsPath_MeshPart3
+    100022: NurbsPath_MeshPart4
+    100024: NurbsPath_MeshPart5
+    100026: NurbsPath_MeshPart6
+    100028: NurbsPath_MeshPart7
+    100030: NurbsPath_MeshPart8
+    100032: NurbsPath_MeshPart9
+    400000: BezierCurve
+    400002: //RootNode
+    400004: NurbsPath
+    400006: NurbsPath_MeshPart0
+    400008: NurbsPath_MeshPart1
+    400010: NurbsPath_MeshPart10
+    400012: NurbsPath_MeshPart11
+    400014: NurbsPath_MeshPart12
+    400016: NurbsPath_MeshPart13
+    400018: NurbsPath_MeshPart2
+    400020: NurbsPath_MeshPart3
+    400022: NurbsPath_MeshPart4
+    400024: NurbsPath_MeshPart5
+    400026: NurbsPath_MeshPart6
+    400028: NurbsPath_MeshPart7
+    400030: NurbsPath_MeshPart8
+    400032: NurbsPath_MeshPart9
+    2300000: BezierCurve
+    2300002: NurbsPath_MeshPart0
+    2300004: NurbsPath_MeshPart1
+    2300006: NurbsPath_MeshPart10
+    2300008: NurbsPath_MeshPart11
+    2300010: NurbsPath_MeshPart12
+    2300012: NurbsPath_MeshPart13
+    2300014: NurbsPath_MeshPart2
+    2300016: NurbsPath_MeshPart3
+    2300018: NurbsPath_MeshPart4
+    2300020: NurbsPath_MeshPart5
+    2300022: NurbsPath_MeshPart6
+    2300024: NurbsPath_MeshPart7
+    2300026: NurbsPath_MeshPart8
+    2300028: NurbsPath_MeshPart9
+    3300000: BezierCurve
+    3300002: NurbsPath_MeshPart0
+    3300004: NurbsPath_MeshPart1
+    3300006: NurbsPath_MeshPart10
+    3300008: NurbsPath_MeshPart11
+    3300010: NurbsPath_MeshPart12
+    3300012: NurbsPath_MeshPart13
+    3300014: NurbsPath_MeshPart2
+    3300016: NurbsPath_MeshPart3
+    3300018: NurbsPath_MeshPart4
+    3300020: NurbsPath_MeshPart5
+    3300022: NurbsPath_MeshPart6
+    3300024: NurbsPath_MeshPart7
+    3300026: NurbsPath_MeshPart8
+    3300028: NurbsPath_MeshPart9
+    4300000: BezierCurve
+    4300002: NurbsPath_MeshPart0
+    4300004: NurbsPath_MeshPart1
+    4300006: NurbsPath_MeshPart2
+    4300008: NurbsPath_MeshPart3
+    4300010: NurbsPath_MeshPart4
+    4300012: NurbsPath_MeshPart5
+    4300014: NurbsPath_MeshPart6
+    4300016: NurbsPath_MeshPart7
+    4300018: NurbsPath_MeshPart8
+    4300020: NurbsPath_MeshPart9
+    4300022: NurbsPath_MeshPart10
+    4300024: NurbsPath_MeshPart11
+    4300026: NurbsPath_MeshPart12
+    4300028: NurbsPath_MeshPart13
+    6400000: BezierCurve
+    6400002: NurbsPath_MeshPart0
+    6400004: NurbsPath_MeshPart1
+    6400006: NurbsPath_MeshPart10
+    6400008: NurbsPath_MeshPart11
+    6400010: NurbsPath_MeshPart12
+    6400012: NurbsPath_MeshPart13
+    6400014: NurbsPath_MeshPart2
+    6400016: NurbsPath_MeshPart3
+    6400018: NurbsPath_MeshPart4
+    6400020: NurbsPath_MeshPart5
+    6400022: NurbsPath_MeshPart6
+    6400024: NurbsPath_MeshPart7
+    6400026: NurbsPath_MeshPart8
+    6400028: NurbsPath_MeshPart9
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 8
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
