@@ -10,9 +10,14 @@ public class gameManager : MonoBehaviour {
     // A dictionary with the level name as the key and the list of players as the values
     public Dictionary<string, Player[]> highscores = new Dictionary<string, Player[]>();
 
+    public List<Material> ballMaterials;
+    public int selectedMaterial;
+
 
     void Awake()
     {
+        //Default value if no material is selected
+        selectedMaterial = -1;
         //PlayerPrefs.DeleteAll();
         // Makes sure the Game Manager persists while the game is running
         GameObject gameManager = GameObject.FindGameObjectWithTag("Game Manager");

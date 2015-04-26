@@ -3,30 +3,51 @@ using System.Collections;
 
 public class PanelToggle : MonoBehaviour {
 
-    public GameObject panel1, panel2, offScreenPos;
-    private Vector3 panel1Pos, panel2Pos;
+    public GameObject mainMenu, levelSelector, ballOptions, offScreenPos, marble;
+    private Vector3 mainMenuPos, levelSelectorPos, ballOptionsPos;
+    private bool mainMenuSwitch, levelSelectorSwitch, ballOptionsSwitch;
 	void Start () {
-        panel1Pos = panel1.transform.position;
-        panel2Pos = panel2.transform.position;
-        if (panel2.transform.position.x != offScreenPos.transform.position.x)
-            panel2.transform.position = offScreenPos.transform.position;
+        mainMenuSwitch = true;
+        levelSelectorSwitch = true;
+        ballOptionsSwitch = true;
+        mainMenuPos = mainMenu.transform.position;
+        levelSelectorPos = levelSelector.transform.position;
+        ballOptionsPos = ballOptions.transform.position;
+        marble.GetComponent<MeshRenderer>().enabled = false;
+
+
+        swapPos(ballOptions, ballOptionsPos, ballOptionsSwitch);
+        swapPos(levelSelector, levelSelectorPos, levelSelectorSwitch);
+        levelSelectorSwitch = !levelSelectorSwitch;
+        ballOptionsSwitch = !ballOptionsSwitch;
 	}
 
-    public void Toggle()
+    public void ToggleLevelSelector()
     {
-        swapPos(panel1, panel1Pos);
-        swapPos(panel2, panel2Pos);
+        swapPos(mainMenu, mainMenuPos, mainMenuSwitch);
+        swapPos(levelSelector, levelSelectorPos, levelSelectorSwitch);
+        mainMenuSwitch = !mainMenuSwitch;
+        levelSelectorSwitch = !levelSelectorSwitch;
     }
 
-    private void swapPos(GameObject panel, Vector3 screenPos)
+    public void ToggleBallCustomization()
     {
-        if (panel.transform.position.x != offScreenPos.transform.position.x)
+        swapPos(mainMenu, mainMenuPos, mainMenuSwitch);
+        swapPos(ballOptions, ballOptionsPos, ballOptionsSwitch);
+        marble.GetComponent<MeshRenderer>().enabled = !marble.GetComponent<MeshRenderer>().enabled;
+        mainMenuSwitch = !mainMenuSwitch;
+        ballOptionsSwitch = !ballOptionsSwitch;
+    }
+
+    private void swapPos(GameObject panel, Vector3 screenPos, bool panelSwitch)
+    {
+        if (!panelSwitch)
         {
-            panel.transform.position = offScreenPos.transform.position;
+            panel.transform.position = screenPos;
         }
         else
         {
-            panel.transform.position = screenPos;
+            panel.transform.position = offScreenPos.transform.position;
         }
     }
 }
