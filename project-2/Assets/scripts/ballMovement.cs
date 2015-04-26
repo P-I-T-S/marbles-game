@@ -117,7 +117,7 @@ public class ballMovement : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Not all gems have been collected!");
+                Invoke("DisplayNotAllGems", 0);
             }
 
         }
@@ -135,7 +135,7 @@ public class ballMovement : MonoBehaviour {
 
         Text newBestTimeTier = GameObject.Find("newBestTimeTier").GetComponent<Text>();
 
-        string newHighScoreTier = gameManager.addScore(1, "Zoidberg", Timer.time);
+        string newHighScoreTier = gameManager.addScore(int.Parse(Application.loadedLevelName), "Zoidberg", Timer.time);
         if (newHighScoreTier == "no tier")
         {
             GameObject[] newBestTimeObjects = GameObject.FindGameObjectsWithTag("newBestTime");
@@ -157,6 +157,16 @@ public class ballMovement : MonoBehaviour {
         }
 
         
+    }
+
+    void DisplayNotAllGems()
+    {
+        infoAndTipsCanvas.GetComponentInChildren<Text>().text = "Not all gems have been collected!";
+        Invoke("HideNotAllGems", 10);
+    }
+    void HideNotAllGems()
+    {
+        infoAndTipsCanvas.GetComponentInChildren<Text>().text = "";
     }
 
 }
