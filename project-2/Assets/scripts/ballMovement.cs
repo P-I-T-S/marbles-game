@@ -99,8 +99,9 @@ public class ballMovement : MonoBehaviour {
 		//Might need to change this to be position.y of both the start and finish platform
         if(transform.position.y < -20)
         {
-            // If the player falls off, reload the level
+            // If the player falls off, reload the level and reset the timer
             Application.LoadLevel(Application.loadedLevelName);
+            Timer.reset();
         }
 	}
 
@@ -132,18 +133,28 @@ public class ballMovement : MonoBehaviour {
         infoAndTipsCanvas.enabled = false;
         levelCompleteTimeText.text = "Time: " + Timer.ToString();
 
-        string newHighScoreTier = gameManager.addScore(int.Parse(Application.loadedLevelName), "Zoidberg", Timer.time);
-        if (string.IsNullOrEmpty(newHighScoreTier)) {
-        GameObject[] newBestTimeObjects = GameObject.FindGameObjectsWithTag("newBestTime");
-        foreach (GameObject o in newBestTimeObjects)
+        Text newBestTimeTier = GameObject.Find("newBestTimeTier").GetComponent<Text>();
+
+        string newHighScoreTier = gameManager.addScore(1, "Zoidberg", Timer.time);
+        if (newHighScoreTier == "no tier")
         {
-            o.SetActive(false);
+            GameObject[] newBestTimeObjects = GameObject.FindGameObjectsWithTag("newBestTime");
+            foreach (GameObject o in newBestTimeObjects)
+            {
+                o.SetActive(false);
+            }
         }
-    }
-    else {
-        levelCompleteTimeText.text += " " + newHighScoreTier;
-}
-        //--------
+        else if(newHighScoreTier == "gold") {
+            newBestTimeTier.text = "-Gold Tier Achived-";
+        }
+        else if (newHighScoreTier == "silver")
+        {
+            newBestTimeTier.text = "-Silver Tier Achived-";
+        }
+        else
+        {
+            newBestTimeTier.text = "-Bronze Tier Achived-";
+        }
 
         
     }

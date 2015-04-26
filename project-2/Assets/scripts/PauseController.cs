@@ -36,7 +36,7 @@ public class PauseController : MonoBehaviour {
         Application.LoadLevel((int.Parse(Application.loadedLevelName.ToString()) + 1).ToString());
         Debug.Log("loaded level: " + (int.Parse(Application.loadedLevelName.ToString()) + 1).ToString());
         Timer timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
-        timer.reset();
+        Timer.reset();
     }
 
     public void MainMenu()

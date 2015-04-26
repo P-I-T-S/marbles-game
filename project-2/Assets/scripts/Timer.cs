@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour {
         time += Time.deltaTime;
 	}
 
-    public void reset()
+    public static void reset()
     {
         time = 0.0f;
     }

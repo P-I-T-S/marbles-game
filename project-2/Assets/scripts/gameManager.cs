@@ -17,22 +17,19 @@ public class gameManager : MonoBehaviour {
         // Makes sure the Game Manager persists while the game is running
         GameObject gameManager = GameObject.FindGameObjectWithTag("Game Manager");
         DontDestroyOnLoad(gameManager);
-        
         // Load the highscores
+
         foreach(string levelName in registeredLevelNames)
         {
             // If this is the first time the game has been played, load filler data
             if (PlayerPrefs.GetString(levelName) == "")
             {
-                PlayerPrefs.SetString(levelName, "Lawrence:9000.0,Lawrence:9000.0,Lawrence:9000.0");
+                PlayerPrefs.SetString(levelName, "Zoidberg:9999.0,Zoidberg:9999.0,Zoidberg:9999.0");
                 PlayerPrefs.Save();
             }
-            else
-            {
-                string highscoreData = PlayerPrefs.GetString(levelName);
-                highscores.Add(levelName, parsePlayerData(highscoreData));
-                Debug.Log(highscoreData);
-            }
+                
+            string highscoreData = PlayerPrefs.GetString(levelName);
+            highscores.Add(levelName, parsePlayerData(highscoreData));
         }
     }
     /// <summary>
@@ -43,7 +40,7 @@ public class gameManager : MonoBehaviour {
     /// <returns>Return the tier you have taken(ex "bronze", "silver")</returns>
     public String addScore(int level, string playerName, float score)
     {
-        if (this.highscores.ContainsKey(level.ToString()) == false)
+        if (!this.highscores.ContainsKey(level.ToString()))
         {
             return "error adding score";
         }
@@ -55,7 +52,6 @@ public class gameManager : MonoBehaviour {
             Player[] temp = new Player[4];
             for(int i = players.Length - 1; i >= 0; i--)
             {
-                Debug.Log("player score: " + players[i].Time);
                 // Check to see if a new tier was achieved
                 if(newScore.CompareTo(players[i]) == -1)
                 {
@@ -67,7 +63,6 @@ public class gameManager : MonoBehaviour {
                         tier = "gold";
 
                 }
-                Debug.Log(i);
                 temp[i] = players[i];
             }
 
