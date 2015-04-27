@@ -78,6 +78,7 @@ public class ballMovement : MonoBehaviour {
             }
             else
             {
+                GetComponent<Transform>().SetParent(transform);
             	//GetComponent<Transform>().SetParent(thi);
                 Vector3 inputDir = new Vector3(zInput, 0, xInput);
 
