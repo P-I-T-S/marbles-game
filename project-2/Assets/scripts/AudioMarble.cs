@@ -34,7 +34,6 @@ public class AudioMarble : MonoBehaviour {
 		*/
 
 		float marbleVelocity = GetComponent<Rigidbody>().velocity.magnitude;
-		Debug.Log ("veloc: " + marbleVelocity);
 		GetComponent<AudioSource> ().pitch = (marbleVelocity / 100) * 9.09f;
 		isGrounded = IsGrounded();
 		if (marbleVelocity > 0.5f && !isPlaying && isGrounded) {

@@ -18,9 +18,11 @@ public class ballMovement : MonoBehaviour {
     Canvas infoAndTipsCanvas;
     Text levelCompleteTimeText;
     gameManager gameManager;
+    RaycastHit hitInfo;
 
 	// Use this for initialization
 	void Start () {
+		hitInfo = new RaycastHit();
 		rigidbody = GetComponent<Rigidbody> ();
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
 		mainCamera = Camera.main.transform;
@@ -37,7 +39,7 @@ public class ballMovement : MonoBehaviour {
 	}
 	public bool IsGrounded() 
 	{
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.2f);
+		return Physics.Raycast(transform.position, -Vector3.up, out hitInfo, distToGround + 0.2f, 1);
 	}
 	// Update is called once per frame
 	void Update () {
@@ -54,6 +56,12 @@ public class ballMovement : MonoBehaviour {
 		    // Move the ball, multiplying by the speed value
             if (IsGrounded())
             {
+				
+				if (hitInfo.collider.tag == "Rotate")
+				{
+					GetComponent<Transform>().SetParent(hitInfo.collider.gameObject.GetComponent<Transform>().parent);
+				}
+            
                 Vector3 inputDir = new Vector3(xInput * -1, 0, zInput);
 
                 // Get direction the camera is faceing, transforming it to global vectors
@@ -70,6 +78,7 @@ public class ballMovement : MonoBehaviour {
             }
             else
             {
+            	//GetComponent<Transform>().SetParent(thi);
                 Vector3 inputDir = new Vector3(zInput, 0, xInput);
 
                 // Get direction the camera is faceing, transforming it to global vectors
@@ -134,10 +143,8 @@ public class ballMovement : MonoBehaviour {
         levelCompleteTimeText.text = "Time: " + Timer.ToString();
 
         Text newBestTimeTier = GameObject.Find("newBestTimeTier").GetComponent<Text>();
-
-        InputField nameInput = GameObject.Find("newBestTimeNameInput").GetComponent<InputField>();
         
-        string newHighScoreTier = gameManager.addScore(int.Parse(Application.loadedLevelName), "Zoidberg", Timer.time);
+        string newHighScoreTier = gameManager.addScore(int.Parse(Application.loadedLevelName), gameManager.playerName, Timer.time);
         if (newHighScoreTier == "no tier")
         {
             GameObject[] newBestTimeObjects = GameObject.FindGameObjectsWithTag("newBestTime");
