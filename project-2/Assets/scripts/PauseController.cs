@@ -28,6 +28,7 @@ public class PauseController : MonoBehaviour {
         Time.timeScale = 1;
         isPaused = false;
         Application.LoadLevel(Application.loadedLevelName);
+        Timer.reset();
     }
 
     public void loadNextLevel()
