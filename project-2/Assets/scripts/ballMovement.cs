@@ -134,10 +134,8 @@ public class ballMovement : MonoBehaviour {
         levelCompleteTimeText.text = "Time: " + Timer.ToString();
 
         Text newBestTimeTier = GameObject.Find("newBestTimeTier").GetComponent<Text>();
-
-        InputField nameInput = GameObject.Find("newBestTimeNameInput").GetComponent<InputField>();
         
-        string newHighScoreTier = gameManager.addScore(int.Parse(Application.loadedLevelName), "Zoidberg", Timer.time);
+        string newHighScoreTier = gameManager.addScore(int.Parse(Application.loadedLevelName), gameManager.playerName, Timer.time);
         if (newHighScoreTier == "no tier")
         {
             GameObject[] newBestTimeObjects = GameObject.FindGameObjectsWithTag("newBestTime");
