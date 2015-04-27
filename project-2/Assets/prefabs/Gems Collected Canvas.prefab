@@ -47,7 +47,7 @@ GameObject:
   - 114: {fileID: 11457530}
   m_Layer: 5
   m_Name: Gems Collected Canvas
-  m_TagString: GUI
+  m_TagString: gemsCollectedCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

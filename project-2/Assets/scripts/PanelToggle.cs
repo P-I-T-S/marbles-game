@@ -50,4 +50,9 @@ public class PanelToggle : MonoBehaviour {
             panel.transform.position = offScreenPos.transform.position;
         }
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

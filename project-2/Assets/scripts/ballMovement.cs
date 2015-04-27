@@ -78,6 +78,7 @@ public class ballMovement : MonoBehaviour {
             }
             else
             {
+                GetComponent<Transform>().SetParent(transform);
             	//GetComponent<Transform>().SetParent(thi);
                 Vector3 inputDir = new Vector3(zInput, 0, xInput);
 
@@ -136,6 +137,7 @@ public class ballMovement : MonoBehaviour {
     {
         Time.timeScale = 0;
 		GetComponent<AudioSource> ().enabled = false;
+		GameObject.FindGameObjectWithTag("Finish").GetComponent<GemAudio> ().setLevelComplete();
         levelCompleteCanvas.enabled = true;
         timer.enabled = false;
         gemsCollectedCanvas.enabled = false;

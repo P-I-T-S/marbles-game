@@ -16,4 +16,8 @@ public class MaterialLoader : MonoBehaviour {
             }
         }
 	}
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Game Manager
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.29467821, y: -5.28943634, z: -3.35448074}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,6 +39,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128e8a3f961cc4e409b2a1f7d8b2f50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  registeredLevelNames:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 8
+  - 9
+  - 10
+  playerName: 
+  ballMaterials:
+  - {fileID: 2100000, guid: c1a0484e99c07434582d235ac421d057, type: 2}
+  - {fileID: 2100000, guid: bc2e6906fb0a1054cb28a5730d4a5bd9, type: 2}
+  - {fileID: 2100000, guid: b16dedefce8cd0e499e8c797177ad06d, type: 2}
+  - {fileID: 2100000, guid: d050a8a1ef8626a4bacf19d4d23e9077, type: 2}
+  - {fileID: 2100000, guid: 243c72313c30c1d439a84e6c33bab169, type: 2}
+  - {fileID: 2100000, guid: 0f9b153fe0bef204e899e2e81a57dcc1, type: 2}
+  selectedMaterial: -1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
