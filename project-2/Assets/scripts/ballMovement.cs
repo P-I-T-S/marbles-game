@@ -41,6 +41,23 @@ public class ballMovement : MonoBehaviour {
 	{
 		return Physics.Raycast(transform.position, -Vector3.up, out hitInfo, distToGround + 0.2f, 1);
 	}
+	
+	private void applySpin()
+	{
+		Vector3 inputDir = new Vector3(xInput * -1, 0, zInput);
+		
+		// Get direction the camera is faceing, transforming it to global vectors
+		Vector3 forwardDirection = mainCamera.transform.TransformDirection(Vector3.forward);
+		Vector3 righDirection = mainCamera.transform.TransformDirection(Vector3.right);
+		
+		// Set the direction to move base on the direction the camera is faceing and the user input
+		Vector3 moveDirection = (righDirection * inputDir.z) + (forwardDirection * inputDir.x);
+		// Remove the vertical component
+		moveDirection.y = 0;
+		// Normonlize the vector so all magnitudes are the same
+		moveDirection.Normalize();
+		rigidbody.AddTorque(moveDirection * speed);
+	}
 	// Update is called once per frame
 	void Update () {
 
@@ -62,24 +79,15 @@ public class ballMovement : MonoBehaviour {
 					GetComponent<Transform>().SetParent(hitInfo.collider.gameObject.GetComponent<Transform>().parent);
 				}
             
-                Vector3 inputDir = new Vector3(xInput * -1, 0, zInput);
-
-                // Get direction the camera is faceing, transforming it to global vectors
-                Vector3 forwardDirection = mainCamera.transform.TransformDirection(Vector3.forward);
-                Vector3 righDirection = mainCamera.transform.TransformDirection(Vector3.right);
-
-                // Set the direction to move base on the direction the camera is faceing and the user input
-                Vector3 moveDirection = (righDirection * inputDir.z) + (forwardDirection * inputDir.x);
-                // Remove the vertical component
-                moveDirection.y = 0;
-                // Normonlize the vector so all magnitudes are the same
-                moveDirection.Normalize();
-                rigidbody.AddTorque(moveDirection * speed);
+                applySpin();
             }
-            else
+            if (!IsGrounded())
             {
+            	applySpin();
+            	
                 GetComponent<Transform>().SetParent(transform);
             	//GetComponent<Transform>().SetParent(thi);
+            	
                 Vector3 inputDir = new Vector3(zInput, 0, xInput);
 
                 // Get direction the camera is faceing, transforming it to global vectors
