@@ -34,7 +34,15 @@ public class PauseController : MonoBehaviour {
     public void loadNextLevel()
     {
         Time.timeScale = 1;
-        Application.LoadLevel((int.Parse(Application.loadedLevelName.ToString()) + 1).ToString());
+        int nextLevel = int.Parse (Application.loadedLevelName.ToString()) + 1;
+        if (nextLevel <= 9)
+        {
+			Application.LoadLevel(nextLevel.ToString()); //Load until last level
+        }
+        else
+        {
+        	Application.LoadLevel ("Menu"); //Load menu if last level has been completed
+        }
         Debug.Log("loaded level: " + (int.Parse(Application.loadedLevelName.ToString()) + 1).ToString());
         Timer timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
         Timer.reset();
