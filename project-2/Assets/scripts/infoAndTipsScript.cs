@@ -7,7 +7,7 @@ public class infoAndTipsScript : MonoBehaviour {
     Text infoAndTipsText;
     int levelName;
     GameObject timer;
-    string[] listOfTips = { "level 0, do not use", "Use the w, a, s and d keys to move to the green platform", "Collect the gems, then go the the finish platform", "", "", "", "", "", "", "", "Angle floating blocks to reach new parts of the level!"};
+    string[] listOfTips = { "level 0, do not use", "Use the w, a, s and d keys to move to the green platform", "Collect the gems, then go the the finish platform", "", "Pick up the spring and then right click to super jump onto the platform above", "Push the blocks onto the sensors to move the platforms into position", "", "", "", "Use springs to super jump onto all the platforms to collect gems", "Angle floating blocks to reach new parts of the level!"};
 
 	// Use this for initialization
 	void Start () {

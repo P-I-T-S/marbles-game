@@ -7,6 +7,7 @@ using System.Collections;
  */
 public class AudioMarble : MonoBehaviour {
 	public AudioClip rolling;
+    public AudioClip gem;
 	private bool isPlaying = false;
 	private bool isGrounded = false;
 	float distToGround;
@@ -34,7 +35,7 @@ public class AudioMarble : MonoBehaviour {
 		*/
 
 		float marbleVelocity = GetComponent<Rigidbody>().velocity.magnitude;
-		GetComponent<AudioSource> ().pitch = (marbleVelocity / 100) * 9.09f;
+        GetComponent<AudioSource>().pitch = (marbleVelocity / 100) * 9.09f;
 		isGrounded = IsGrounded();
 		if (marbleVelocity > 0.5f && !isPlaying && isGrounded) {
 			GetComponent<AudioSource> ().Play ();
@@ -47,6 +48,15 @@ public class AudioMarble : MonoBehaviour {
 			isPlaying = false;
 		}
 	}
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Gem")
+        {
+            GetComponent<AudioSource>().pitch = 0.81f;
+            GetComponent<AudioSource>().PlayOneShot(gem);
+        }
+    }
 
 	public bool IsGrounded() 
 	{
