@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 public class collisions : MonoBehaviour {
     public Text superJumpText;
-    GameObject superJump;
-	GameObject superSpeed;
+    GameObject[] superJumps;
+	GameObject[] superSpeeds;
     float superJumpForce = 800f;
 	float superSpeedForce = 5000f;
 	SphereCollider sphereCollider;
@@ -21,8 +21,8 @@ public class collisions : MonoBehaviour {
     void Awake()
     {
 		sphereCollider = this.gameObject.GetComponent<SphereCollider>();
-        superJump = GameObject.FindGameObjectWithTag("Spring");
-		superSpeed = GameObject.FindGameObjectWithTag ("SuperSpeed");
+        superJumps = GameObject.FindGameObjectsWithTag("Spring");
+		superSpeeds = GameObject.FindGameObjectsWithTag ("SuperSpeed");
 		maincamera = Camera.main.transform;
         GameObject gemsCollectedUI = GameObject.FindGameObjectWithTag("gemsCollectedGuiText");
         gemsCollectedText = gemsCollectedUI.GetComponent<Text>();
@@ -129,11 +129,17 @@ public class collisions : MonoBehaviour {
     void Display()
     {
 		if (hitSuperJump) {
-			superJump.SetActive (true);
+            foreach (GameObject superJump in superJumps)
+            {
+                superJump.SetActive(true);
+            }
 			hitSuperJump = false;
 		}
 		if (hitSuperSpeed) {
-			superSpeed.SetActive (true);
+            foreach (GameObject superSpeed in superSpeeds)
+            {
+                superSpeed.SetActive(true);
+            }
 			hitSuperSpeed = false;
 		}
 
