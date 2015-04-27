@@ -87,7 +87,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .284000009
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gemPickup: {fileID: 8300000, guid: a1fde87f774e2744f8c02552e1a44699, type: 3}
   complete: {fileID: 8300000, guid: 582bb8c0dc0a9944d83e0c29aaee7d0d, type: 3}
+  levelComplete: {fileID: 0}
+  isLevelComplete: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

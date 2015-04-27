@@ -13,13 +13,14 @@ public class GemAudio : MonoBehaviour {
 	}
 	void Update(){
 		if (isLevelComplete) {
+            GetComponent<AudioSource>().volume = 0.3f;
 			GetComponent<AudioSource>().PlayOneShot(levelComplete);
 			isLevelComplete = false;
 		}
 	}
 	void OnTriggerEnter(Collider coll){
 		AudioSource thisAudioSource = GetComponent<AudioSource>();
-		thisAudioSource.volume = 0.5f;
+		thisAudioSource.volume = 0.2f;
 		if (coll.gameObject.tag == "Player") {
 			if(GameObject.FindGameObjectsWithTag("Gem").Length == 1 && this.gameObject.tag == "Gem"){
 				AudioSource.PlayClipAtPoint(complete, GetComponent<Transform>().position);
