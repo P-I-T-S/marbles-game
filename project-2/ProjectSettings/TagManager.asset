@@ -3,27 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Spring
-  - Game Manager
-  - Start
-  - Gem
-  - GUI
-  - gemsCollectedGuiText
-  - levelCompleteCanvas
-  - Timer
-  - pauseCanvas
-  - SuperSpeed
-  - BlockStop
-  - MovingBlock
-  - LockedBlock
-  - superJumpUI
-  - Projector
-  - infoAndTipsCanvas
-  - infoAndTipsText
-  - gemsCollectedCanvas
-  - levelCompleteTimeText
-  - newBestTime
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -33,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - UI Background
+  - 
   - 
   - 
   - 
