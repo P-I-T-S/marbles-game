@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class gemScript : MonoBehaviour {
+public class rotateItem : MonoBehaviour {
     public int rotateSpeed = 1;
 	// Use this for initialization
 	void Start () {

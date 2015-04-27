@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class gameManager : MonoBehaviour {
     public string[] registeredLevelNames = {"1", "2", "3", "4", "5"};
     // A dictionary with the level name as the key and the list of players as the values
     public Dictionary<string, Player[]> highscores = new Dictionary<string, Player[]>();
-
+    public string playerName;
     public List<Material> ballMaterials;
     public int selectedMaterial;
 
@@ -123,6 +124,15 @@ public class gameManager : MonoBehaviour {
         }
 
         return players;
+    }
+
+    public void submitPlayerName()
+    {
+        InputField inputField = GameObject.Find("playerNameInput").GetComponent<InputField>();
+        GameObject input = GameObject.FindGameObjectWithTag("playerNameInputText");
+        this.playerName = input.GetComponent<Text>().text;
+        inputField.interactable = false;
+
     }
 
     

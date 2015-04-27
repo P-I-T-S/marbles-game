@@ -24,6 +24,7 @@ TagManager:
   - gemsCollectedCanvas
   - levelCompleteTimeText
   - newBestTime
+  - playerNameInputText
   layers:
   - Default
   - TransparentFX
