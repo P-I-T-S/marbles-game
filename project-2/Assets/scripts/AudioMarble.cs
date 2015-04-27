@@ -19,20 +19,6 @@ public class AudioMarble : MonoBehaviour {
 	}
 
 	void Update () {
-		/*
-		Rigidbody marbleRigidbody = GetComponent<Rigidbody> ();
-		float velocity1 = marbleRigidbody.velocity.magnitude;
-		Invoke ("waitASecond", 1.0f);
-		float velocity2 = GetComponent<Rigidbody> ().velocity.magnitude;
-		Debug.Log("Velocity 1: " + velocity1 + " Velocity 2: " + velocity2);
-		//If velocity is changing
-		if (Mathf.Abs (velocity2 - velocity1) > 0) {
-			GetComponent<AudioSource> ().Play ();
-		}
-		else {
-			GetComponent<AudioSource>().Pause();
-		}
-		*/
 
 		float marbleVelocity = GetComponent<Rigidbody>().velocity.magnitude;
         GetComponent<AudioSource>().pitch = (marbleVelocity / 100) * 9.09f;

@@ -66,10 +66,10 @@ public class collisions : MonoBehaviour {
         }
 
         // Gem pickup
-        else if(col.gameObject.tag == "Gem")
-        {
-            GameObject.Destroy(col.gameObject);
-        }
+//        else if(col.gameObject.tag == "Gem")
+//        {
+//            GameObject.Destroy(col.gameObject);
+//        }
     }
 
 
