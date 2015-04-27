@@ -1,0 +1,27 @@
+Who worked on what:
+Lawrence:
+	Levels 1, 2
+	User Interfaces
+	Highscores, saved game data
+	Super Speed 3D model
+	Level tips
+	Camera following and rotation
+Kyle:
+	Levels 3, 8
+	Super Speed powerup
+	Audio
+Coleten:
+	Levels 4, 5, 9
+	Super Jump powerup
+	Timer
+Duncan:
+	Levels 6, 10
+	Moving blocks
+	Rotating blocks
+	Pause script
+	Main menu functions
+	
+
+Credits:
+Main Menu Muic - "Brodyquest" by "Lemon Demon" - http://lemondemon.bandcamp.com/track/brodyquest
+Sound effects - custom made using http://www.bfxr.net/ and Creative Commons from "http://www.freesound.org/"
