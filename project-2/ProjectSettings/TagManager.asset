@@ -25,6 +25,7 @@ TagManager:
   - levelCompleteTimeText
   - newBestTime
   - playerNameInputText
+  - Fence
   layers:
   - Default
   - TransparentFX
