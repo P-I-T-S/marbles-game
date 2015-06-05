@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class collisions : MonoBehaviour {
     public Text superJumpText;
+    public Text superSpeedText;
     GameObject[] superJumps;
 	GameObject[] superSpeeds;
     float superJumpForce = 800f;
@@ -41,7 +42,8 @@ public class collisions : MonoBehaviour {
         // Super Jump pickup
         if (col.gameObject.tag == "Spring")
         {
-            Show();
+            ShowSuperJumpText();
+            HideSuperSpeedText();
             canSuperJump = true;
             canSuperSpeed = false;
             col.gameObject.SetActive(false);
@@ -50,6 +52,8 @@ public class collisions : MonoBehaviour {
         }
 		//Super Speed
 		else if (col.gameObject.tag == "SuperSpeed") {
+            ShowSuperSpeedText();
+            HideSuperJumpText();
 			canSuperSpeed = true;
             canSuperJump = false;
 			col.gameObject.SetActive(false);
@@ -60,7 +64,8 @@ public class collisions : MonoBehaviour {
         //Turning off powerups when level finished
         else if (col.gameObject.tag == "Finish")
         {
-            Hide();
+            HideSuperJumpText();
+            HideSuperSpeedText();
             canSuperJump = false;
             canSuperSpeed = false;
         }
@@ -92,7 +97,7 @@ public class collisions : MonoBehaviour {
                 Vector3 jump = new Vector3(0, superJumpForce, 0);
                 GetComponent<Rigidbody>().AddForce(jump);
                 canSuperJump = false;
-                Hide();
+                HideSuperJumpText();
             }
         }
 		//super speed
@@ -106,6 +111,7 @@ public class collisions : MonoBehaviour {
 				Rigidbody ballRigidBody = GetComponent<Rigidbody>();
 				ballRigidBody.AddForce (forwardDirection * superSpeedForce);
 				canSuperSpeed = false;
+                HideSuperSpeedText();
 			}
 		}
     } // End of update method
@@ -146,14 +152,24 @@ public class collisions : MonoBehaviour {
     } 
 
 
-    void Show()
+    void ShowSuperJumpText()
     {
         superJumpText.GetComponent<CanvasGroup>().alpha = 1;
     }
 
-    void Hide()
+    void HideSuperJumpText()
     {
         superJumpText.GetComponent<CanvasGroup>().alpha = 0;
+    }
+
+    void ShowSuperSpeedText()
+    {
+        superSpeedText.GetComponent<CanvasGroup>().alpha = 1;
+    }
+
+    void HideSuperSpeedText()
+    {
+        superSpeedText.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     void UpdateNumberOfGemsCollected()

@@ -167,10 +167,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
-    - target: {fileID: 11456964, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
-      propertyPath: gem
-      value: 
-      objectReference: {fileID: 8300000, guid: a1fde87f774e2744f8c02552e1a44699, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
   m_IsPrefabParent: 0
@@ -264,6 +260,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf8e163b0d20e8444b4e33bae9667462, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &144116405
+RectTransform:
+  m_PrefabParentObject: {fileID: 22472222, guid: cce15648e5172cd4388ccf2734e472c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 46989753}
 --- !u!1001 &159167652
 Prefab:
   m_ObjectHideFlags: 0
@@ -1489,6 +1490,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11478244, guid: ee3a3592c91063f4b940f57ab65c1c50, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 144116405}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee3a3592c91063f4b940f57ab65c1c50, type: 2}
   m_IsPrefabParent: 0

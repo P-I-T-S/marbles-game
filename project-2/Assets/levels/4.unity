@@ -88,6 +88,12 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &118502289
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11441790, guid: ee3a3592c91063f4b940f57ab65c1c50,
+    type: 2}
+  m_PrefabInternal: {fileID: 1619629733}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &240658142
 Prefab:
   m_ObjectHideFlags: 0
@@ -173,18 +179,17 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01e72eeb44d4b394a851d0ce436ab73f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &509557549
-GameObject:
-  m_PrefabParentObject: {fileID: 147644, guid: ee3a3592c91063f4b940f57ab65c1c50, type: 2}
+--- !u!224 &621979977
+RectTransform:
+  m_PrefabParentObject: {fileID: 22472222, guid: cce15648e5172cd4388ccf2734e472c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 2022214573}
+--- !u!114 &687868458
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11454636, guid: ee3a3592c91063f4b940f57ab65c1c50,
+    type: 2}
   m_PrefabInternal: {fileID: 1619629733}
---- !u!45 &509557552
-Skybox:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 509557549}
-  m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 08628fe48547ba041a910b61b325b81d, type: 2}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &900191648
 Prefab:
   m_ObjectHideFlags: 0
@@ -324,6 +329,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11407284, guid: ee3a3592c91063f4b940f57ab65c1c50, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 621979977}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee3a3592c91063f4b940f57ab65c1c50, type: 2}
   m_IsPrefabParent: 0
@@ -466,6 +475,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11452562, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
+      propertyPath: superJumpText
+      value: 
+      objectReference: {fileID: 687868458}
+    - target: {fileID: 11452562, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
+      propertyPath: superSpeedText
+      value: 
+      objectReference: {fileID: 118502289}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce15648e5172cd4388ccf2734e472c0, type: 2}
   m_IsPrefabParent: 0

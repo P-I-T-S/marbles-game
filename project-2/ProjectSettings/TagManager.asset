@@ -17,8 +17,7 @@ TagManager:
   - BlockStop
   - MovingBlock
   - LockedBlock
-  - superJumpUI
-  - Projector
+  - powerUpsCanvas
   - infoAndTipsCanvas
   - infoAndTipsText
   - gemsCollectedCanvas
@@ -26,6 +25,8 @@ TagManager:
   - newBestTime
   - playerNameInputText
   - Fence
+  - superJumpText
+  - superSpeedText
   layers:
   - Default
   - TransparentFX
